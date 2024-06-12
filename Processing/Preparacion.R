@@ -61,7 +61,7 @@ colSums(is.na(Proc_data))
 Proc_data <- Proc_data %>% set_na(., na = c(-88, -99, -66))
 Proc_data <- na.omit(Proc_data)
 
-###### CON LOS FILTROS Y EL TRATAMIENTO DE LOS CASOS PERDIDOS, QUEDAMOS EN 1419 OBSERVACIONES Y 8 VARIABLES POR EL MOMENTO
+###### CON LOS FILTROS Y EL TRATAMIENTO DE LOS CASOS PERDIDOS, QUEDAMOS EN 1419 OBSERVACIONES Y 10 VARIABLES POR EL MOMENTO
 
 # 3.4 Renombramos las variables
 Proc_data <- Proc_data %>% rename("Nivel_educacional"=e6a, 
@@ -83,7 +83,7 @@ Proc_data$Nivel_educacional <- factor(Proc_data$Nivel_educacional,
                                       labels = c("No asistió", "Educ. Básica", "Educ. Media", "Educ. Superior"),
                                       levels = c(1, 2, 3, 4))
 ### Sistema de Salud al que pertenece:
-Proc_data$Sistema_salud <- car::recode(Proc_data$Sistema_salud, "5=0")
+Proc_data$Sistema_salud <- car::recode(Proc_data$Sistema_salud, "5=0; 1=1; 2=2; 3=3; 4=4;")
 Proc_data$Sistema_salud <- factor(Proc_data$Sistema_salud,
                                       labels = c("Otro sistema", "FONASA", "Isapre", "FF.AA.", "Particular"),
                                       levels = c(0, 1, 2, 3, 4))
@@ -204,12 +204,9 @@ ggplot(Proc_data, aes(x = indice_pobreza_rural)) +
   xlab("Indices de pobreza multidimensional Rural en la 8va región") +
   ylab("Frecuencia")
 
-save(Proc_data,file = "input/Proc_data.RData")
-
 ####### CORRECCION ENTREGA 3###########
 
 # 6. Regresión Lineal
-load(file = "Input/Proc_data.RData")
 
 # 6.1 Recodificamos para la reegresión:
 
@@ -218,13 +215,11 @@ Proc_data <- Proc_data %>%
                           sexo == 2 ~ 0)) #Para Mujeres
 
 # 6.2 El indice de pobreza rural lo creamos anteriormente
-Proc_data <- mutate_all(Proc_data, as.numeric)
-
 fit01 <- lm(indice_pobreza_rural ~ sexo, data = Proc_data)
 fit02 <- lm(indice_pobreza_rural ~ sexo + edad, data = Proc_data)
 fit03 <- lm(indice_pobreza_rural ~ sexo + edad + Tipo_vivienda, data = Proc_data)
 
-labs01 <- c("Intercepto", "Sexo (mujer)", "Edad")
+labs01 <- c("Intercepto","Sexo (mujer)","Edad", "Tipo de vivienda")
 
 screenreg(list(fit01,fit02,fit03),custom.coef.names = labs01)
 

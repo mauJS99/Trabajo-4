@@ -11,4 +11,4 @@
 [1,"pandoc \n  to: html\n  output-file: Pobreza_rural_4.html\n  standalone: true\n  section-divs: true\n  html-math-method: mathjax\n  wrap: none\n  default-image-extension: png\n  \nmetadata\n  document-css: false\n  link-citations: true\n  date-format: long\n  lang: en\n  title: Pobreza_rural_Biobio_4\n  author: Mauricio Jara\n  editor: visual\n  bibliography:\n    - TrabajoR_Pobreza_Rural_Biobio.bib\n  \n"]
 [1,"[WARNING] Citeproc: citation PNUD not found\r\n[WARNING] Citeproc: citation decreto1992 not found\r\n"]
 [1,"Output created: Pobreza_rural_4.html\n\nWatching files for changes\n"]
-[1,"Browse at http://localhost:5296/\n"]
+[1,"Browse at http://localhost:3853/\n"]
