@@ -204,26 +204,29 @@ ggplot(Proc_data, aes(x = indice_pobreza_rural)) +
   xlab("Indices de pobreza multidimensional Rural en la 8va región") +
   ylab("Frecuencia")
 
-save(Proc_data,file = "input/Proc_data.RData")
-
 ####### CORRECCION ENTREGA 3###########
 
 # 6. Regresión Lineal
 load(file = "Input/Proc_data.RData")
+
 # 6.1 Recodificamos para la reegresión:
+
 Proc_data <- Proc_data %>%
   mutate(sexo = case_when(sexo == 1 ~ 1, #Para Hombres
                           sexo == 2 ~ 0)) #Para Mujeres
 
 # 6.2 El indice de pobreza rural lo creamos anteriormente
+Proc_data <- mutate_all(Proc_data, as.numeric)
 
 fit01 <- lm(indice_pobreza_rural ~ sexo, data = Proc_data)
 fit02 <- lm(indice_pobreza_rural ~ sexo + edad, data = Proc_data)
 fit03 <- lm(indice_pobreza_rural ~ sexo + edad + Tipo_vivienda, data = Proc_data)
 
 labs01 <- c("Intercepto","Sexo (mujer)","Edad", "Tipo de vivienda")
+labs01 <- c("Intercepto", "Sexo (mujer)", "Edad")
 
 screenreg(list(fit01,fit02,fit03),custom.coef.names = labs01)
+
 
 # htmlreg para que se vea en el sitio web
 knitreg(list(fit01,fit02,fit03),

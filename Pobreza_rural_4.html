@@ -168,69 +168,69 @@ div.csl-indent {
 <pre><code>### Data Frame Summary  
 #### Proc_data  
 **Dimensions:** 1419 x 11  
-**Duplicates:** 278  
+**Duplicates:** 444  
 
---------------------------------------------------------------------------------------------------------------------------
-No   Variable                Stats / Values             Freqs (% of Valid)   Graph                    Valid      Missing  
----- ----------------------- -------------------------- -------------------- ------------------------ ---------- ---------
-1    edad\                   Mean (sd) : 44.6 (14.3)\   68 distinct values   \ \ \ \ . \ \ : :\       1419\      0\       
-     [numeric]               min &lt; med &lt; max:\                               \ \ . : : : :\           (100.0%)   (0.0%)   
-                             15 &lt; 45 &lt; 89\                                   \ \ : : : : : :\                             
-                             IQR (CV) : 23 (0.3)                             . : : : : : :\                               
-                                                                             : : : : : : : : .                            
+--------------------------------------------------------------------------------------------------------------------------------
+No   Variable                Stats / Values                   Freqs (% of Valid)   Graph                    Valid      Missing  
+---- ----------------------- -------------------------------- -------------------- ------------------------ ---------- ---------
+1    edad\                   Mean (sd) : 44.6 (14.3)\         68 distinct values   \ \ \ \ . \ \ : :\       1419\      0\       
+     [numeric]               min &lt; med &lt; max:\                                     \ \ . : : : :\           (100.0%)   (0.0%)   
+                             15 &lt; 45 &lt; 89\                                         \ \ : : : : : :\                             
+                             IQR (CV) : 23 (0.3)                                   . : : : : : :\                               
+                                                                                   : : : : : : : : .                            
 
-2    sexo\                   Min  : 1\                  1 : 926 (65.3%)\     IIIIIIIIIIIII \          1419\      0\       
-     [numeric]               Mean : 1.3\                2 : 493 (34.7%)      IIIIII                   (100.0%)   (0.0%)   
-                             Max  : 2                                                                                     
+2    sexo\                   Min  : 1\                        1 : 926 (65.3%)\     IIIIIIIIIIIII \          1419\      0\       
+     [numeric]               Mean : 1.3\                      2 : 493 (34.7%)      IIIIII                   (100.0%)   (0.0%)   
+                             Max  : 2                                                                                           
 
-3    nse\                    Min  : 1\                  1 : 1113 (78.4%)\    IIIIIIIIIIIIIII \        1419\      0\       
-     [numeric]               Mean : 1.2\                2 :  306 (21.6%)     IIII                     (100.0%)   (0.0%)   
-                             Max  : 2                                                                                     
+3    nse\                    1\. NSE Bajo\                    1113 (78.4%)\        IIIIIIIIIIIIIII \        1419\      0\       
+     [factor]                2\. NSE Medio\                   306 (21.6%)\         IIII \                   (100.0%)   (0.0%)   
+                             3\. NSE Alto                     0 ( 0.0%)                                                         
 
-4    region\                 1 distinct value           8 : 1419 (100.0%)    IIIIIIIIIIIIIIIIIIII     1419\      0\       
-     [numeric]                                                                                        (100.0%)   (0.0%)   
+4    region\                 1 distinct value                 8 : 1419 (100.0%)    IIIIIIIIIIIIIIIIIIII     1419\      0\       
+     [numeric]                                                                                              (100.0%)   (0.0%)   
 
-5    area\                   1 distinct value           2 : 1419 (100.0%)    IIIIIIIIIIIIIIIIIIII     1419\      0\       
-     [numeric]                                                                                        (100.0%)   (0.0%)   
+5    area\                   1 distinct value                 2 : 1419 (100.0%)    IIIIIIIIIIIIIIIIIIII     1419\      0\       
+     [numeric]                                                                                              (100.0%)   (0.0%)   
 
-6    Nivel_educacional\      Mean (sd) : 2.8 (0.7)\     1 :  15 ( 1.1%)\     \                        1419\      0\       
-     [numeric]               min &lt; med &lt; max:\          2 : 488 (34.4%)\     IIIIII \                 (100.0%)   (0.0%)   
-                             1 &lt; 3 &lt; 4\                 3 : 639 (45.0%)\     IIIIIIIII \                                  
-                             IQR (CV) : 1 (0.3)         4 : 277 (19.5%)      III                                          
+6    Nivel_educacional\      1\. No asistió\                  15 ( 1.1%)\          \                        1419\      0\       
+     [factor]                2\. Educ. Básica\                1404 (98.9%)\        IIIIIIIIIIIIIIIIIII \    (100.0%)   (0.0%)   
+                             3\. Educ. Media\                 0 ( 0.0%)\           \                                            
+                             4\. Educ. Superior               0 ( 0.0%)                                                         
 
-7    Trabajo_oficio\         Mean (sd) : 2.8 (1)\       1 : 201 (14.2%)\     II \                     1419\      0\       
-     [numeric]               min &lt; med &lt; max:\          2 : 246 (17.3%)\     III \                    (100.0%)   (0.0%)   
-                             1 &lt; 3 &lt; 4\                 3 : 617 (43.5%)\     IIIIIIII \                                   
-                             IQR (CV) : 1.5 (0.3)       4 : 355 (25.0%)      IIIII                                        
+7    Trabajo_oficio\         1\. Gestión y Profesionales\     1064 (75.0%)\        IIIIIIIIIIIIII \         1419\      0\       
+     [factor]                2\. Administración y Servicio\   355 (25.0%)\         IIIII \                  (100.0%)   (0.0%)   
+                             3\. Ocupaciones Manuales y Té\   0 ( 0.0%)\           \                                            
+                             4\. Ocupaciones generales y M    0 ( 0.0%)                                                         
 
-8    Sistema_salud\          Mean (sd) : 2.1 (0.4)\     1 :    1 ( 0.1%)\    \                        1419\      0\       
-     [numeric]               min &lt; med &lt; max:\          2 : 1330 (93.7%)\    IIIIIIIIIIIIIIIIII \     (100.0%)   (0.0%)   
-                             1 &lt; 2 &lt; 5\                 3 :   49 ( 3.5%)\    \                                            
-                             IQR (CV) : 0 (0.2)         4 :   24 ( 1.7%)\    \                                            
-                                                        5 :   15 ( 1.1%)                                                  
+8    Sistema_salud\          1\. Otro sistema\                15 ( 1.1%)\          \                        1419\      0\       
+     [factor]                2\. FONASA\                      1 ( 0.1%)\           \                        (100.0%)   (0.0%)   
+                             3\. Isapre\                      1330 (93.7%)\        IIIIIIIIIIIIIIIIII \                         
+                             4\. FF.AA.\                      49 ( 3.5%)\          \                                            
+                             5\. Particular                   24 ( 1.7%)                                                        
 
-9    Red_apoyo\              Mean (sd) : 1.9 (1.4)\     1 : 763 (53.8%)\     IIIIIIIIII \             1419\      0\       
-     [numeric]               min &lt; med &lt; max:\          2 : 357 (25.2%)\     IIIII \                  (100.0%)   (0.0%)   
-                             1 &lt; 1 &lt; 8\                 3 :  79 ( 5.6%)\     I \                                          
-                             IQR (CV) : 1 (0.7)         4 : 165 (11.6%)\     II \                                         
-                                                        5 :  15 ( 1.1%)\     \                                            
-                                                        6 :   3 ( 0.2%)\     \                                            
-                                                        7 :  24 ( 1.7%)\     \                                            
-                                                        8 :  13 ( 0.9%)                                                   
+9    Red_apoyo\              1\. No participa\                0 ( 0.0%)\           \                        1419\      0\       
+     [factor]                2\. Organizaciones Comunitari\   1120 (78.9%)\        IIIIIIIIIIIIIII \        (100.0%)   (0.0%)   
+                             3\. Organizaciones culturales\   180 (12.7%)\         II \                                         
+                             4\. Organizaciones Religiosas\   79 ( 5.6%)\          I \                                          
+                             5\. Organizaciones de Grupos \   40 ( 2.8%)\          \                                            
+                             6\. Organizaciones de Volunta\   0 ( 0.0%)\           \                                            
+                             7\. Organizaicones corportati\   0 ( 0.0%)\           \                                            
+                             8\. Otros                        0 ( 0.0%)                                                         
 
-10   Tipo_vivienda\          Mean (sd) : 1.1 (0.5)\     1 : 1389 (97.9%)\    IIIIIIIIIIIIIIIIIII \    1419\      0\       
-     [numeric]               min &lt; med &lt; max:\          2 :   21 ( 1.5%)\    \                        (100.0%)   (0.0%)   
-                             1 &lt; 1 &lt; 10\                3 :    1 ( 0.1%)\    \                                            
-                             IQR (CV) : 0 (0.5)         7 :    6 ( 0.4%)\    \                                            
-                                                        9 :    1 ( 0.1%)\    \                                            
-                                                        10 :    1 ( 0.1%)                                                 
+10   Tipo_vivienda\          Mean (sd) : 1.1 (0.5)\           1 : 1389 (97.9%)\    IIIIIIIIIIIIIIIIIII \    1419\      0\       
+     [numeric]               min &lt; med &lt; max:\                2 :   21 ( 1.5%)\    \                        (100.0%)   (0.0%)   
+                             1 &lt; 1 &lt; 10\                      3 :    1 ( 0.1%)\    \                                            
+                             IQR (CV) : 0 (0.5)               7 :    6 ( 0.4%)\    \                                            
+                                                              9 :    1 ( 0.1%)\    \                                            
+                                                              10 :    1 ( 0.1%)                                                 
 
-11   indice_pobreza_rural\   Mean (sd) : 10.9 (1.7)\    12 distinct values   \ \ \ \ : :\             1419\      0\       
-     [numeric]               min &lt; med &lt; max:\                               \ \ . : :\               (100.0%)   (0.0%)   
-                             7 &lt; 11 &lt; 18\                                    \ \ : : : :\                                 
-                             IQR (CV) : 2 (0.2)                              \ \ : : : : .\                               
-                                                                             : : : : : : . .                              
---------------------------------------------------------------------------------------------------------------------------</code></pre>
+11   indice_pobreza_rural\   Mean (sd) : 10.9 (1.7)\          12 distinct values   \ \ \ \ : :\             1419\      0\       
+     [numeric]               min &lt; med &lt; max:\                                     \ \ . : :\               (100.0%)   (0.0%)   
+                             7 &lt; 11 &lt; 18\                                          \ \ : : : :\                                 
+                             IQR (CV) : 2 (0.2)                                    \ \ : : : : .\                               
+                                                                                   : : : : : : . .                              
+--------------------------------------------------------------------------------------------------------------------------------</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(Proc_data), <span class="at">method=</span><span class="st">'render'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -239,7 +239,7 @@ No   Variable                Stats / Values             Freqs (% of Valid)   Gra
 <h3 class="anchored">Data Frame Summary</h3>
 <h4 class="anchored">Proc_data</h4>
 <strong>Dimensions</strong>: 1419 x 11
-  <br><strong>Duplicates</strong>: 278
+  <br><strong>Duplicates</strong>: 444
 <br>
 
 <table class="table table-striped table-bordered st-table st-table-striped st-table-bordered st-multiline table-sm small" data-quarto-postprocess="true">
@@ -284,7 +284,7 @@ No   Variable                Stats / Values             Freqs (% of Valid)   Gra
 </tbody>
 </table></td>
 <td style="text-align: left; vertical-align: middle;">68 distinct values</td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAJgAAABuBAMAAAApJ8cWAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwECROhICscAAAAuklEQVRo3u3YawqAIBBGUbdQO8h2UPvfWypkSdljnCDrfj9CpTmISIbGEEmak7TWpTt76wLmHTu6aGC9c4YvYmGVtLBQroCFPZDB0glfwXxVBkuHwWrDbNwoClgfe2BgFWDz5lfB5gZYMXZ0RN3GxoPpgYFVjcV/dA1sWwUGBgYGBgYGBvYYlrm1lWH+AaaJ7VyUybFMFdhfsJ0LDjkWemBg/8bSA7QQ8433YsvnQwGLi2fXR11xDJFkAvjezeIOONDiAAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAJgAAABuBAMAAAApJ8cWAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwEGCKjJwg2AAAAuklEQVRo3u3YawqAIBBGUbdQO8h2UPvfWypkSdljnCDrfj9CpTmISIbGEEmak7TWpTt76wLmHTu6aGC9c4YvYmGVtLBQroCFPZDB0glfwXxVBkuHwWrDbNwoClgfe2BgFWDz5lfB5gZYMXZ0RN3GxoPpgYFVjcV/dA1sWwUGBgYGBgYGBvYYlrm1lWH+AaaJ7VyUybFMFdhfsJ0LDjkWemBg/8bSA7QQ8433YsvnQwGLi2fXR11xDJFkAvjezeIOONDiAAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -324,47 +324,49 @@ No   Variable                Stats / Values             Freqs (% of Valid)   Gra
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAG4AAAA3BAMAAAAf9GL3AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwECROhICscAAAAQklEQVRIx2NgGP5AiVQA1adsTBowGtU3qm9U36g+IvWRWy4JkgoGSB9ujyji1Yc7PEf1jeob1TeqjzJ95JZLwxkAACLoaPnq8OE/AAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAG4AAAA3BAMAAAAf9GL3AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwEGCKjJwg2AAAAQklEQVRIx2NgGP5AiVQA1adsTBowGtU3qm9U36g+IvWRWy4JkgoGSB9ujyji1Yc7PEf1jeob1TeqjzJ95JZLwxkAACLoaPnq8OE/AAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">3</td>
-<td style="text-align: left;">nse [numeric]</td>
+<td style="text-align: left;">nse [factor]</td>
 <td style="text-align: left; padding: 8; vertical-align: middle;"><table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <tbody>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">Min : 1</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">1. NSE Bajo</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">Mean : 1.2</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">2. NSE Medio</td>
 </tr>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">Max : 2</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">3. NSE Alto</td>
 </tr>
 </tbody>
 </table></td>
 <td style="text-align: left; padding: 0; vertical-align: middle;"><table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <tbody>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">1</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">1113</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">78.4%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">1113</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">78.4%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">2</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">306</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">21.6%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">306</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">21.6%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">0</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">0.0%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAIIAAAA3BAMAAAAyKo8IAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwECROhICscAAAASElEQVRIx2NgGAUwoEQ+gJqgbEwuMBo1YdSEURNGTRgRJlBe0gqSDwaRCeieUyTZBPS4GDVh1IRRE0ZNGDUB1QTKS9pRwMAAADW3iC+okDLVAAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAIIAAABOBAMAAAAeB9MBAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwEGCKjJwg2AAAAVElEQVRYw+3UsQ0AIAgAQVZwBHQD3X83G22oFGKi5r/nCkgQoVn2N4TSvFUEBASEB4T4n0z+vhLsenRbsNdEQEBAuEmIf7n1gb8FRUBAQEA4LJBIB2/D15f07mrPAAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -384,7 +386,7 @@ No   Variable                Stats / Values             Freqs (% of Valid)   Gra
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAKIAAAAfCAQAAADOr947AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAd0SU1FB+gGDAQJE6EgKxwAAACGSURBVGje7dlBCoAgFADRfni6btAJu4HXq6XZKnRAynkrRRAZ0I1xLuq1jj7AHxgRYERAuk8OH8jX9ijjVC9to8/2EbmaeZ0BRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEwOOjKrftMrnwl7Sf1xlgRIARARdl3QX3i5+/dgAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAKIAAAAfCAQAAADOr947AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAd0SU1FB+gGDAQYIqMnCDYAAACGSURBVGje7dlBCoAgFADRfni6btAJu4HXq6XZKnRAynkrRRAZ0I1xLuq1jj7AHxgRYERAuk8OH8jX9ijjVC9to8/2EbmaeZ0BRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEwOOjKrftMrnwl7Sf1xlgRIARARdl3QX3i5+/dgAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -404,283 +406,256 @@ No   Variable                Stats / Values             Freqs (% of Valid)   Gra
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAKIAAAAfCAQAAADOr947AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAd0SU1FB+gGDAQJE6EgKxwAAACGSURBVGje7dlBCoAgFADRfni6btAJu4HXq6XZKnRAynkrRRAZ0I1xLuq1jj7AHxgRYERAuk8OH8jX9ijjVC9to8/2EbmaeZ0BRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEwOOjKrftMrnwl7Sf1xlgRIARARdl3QX3i5+/dgAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAKIAAAAfCAQAAADOr947AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAd0SU1FB+gGDAQYIqMnCDYAAACGSURBVGje7dlBCoAgFADRfni6btAJu4HXq6XZKnRAynkrRRAZ0I1xLuq1jj7AHxgRYERAuk8OH8jX9ijjVC9to8/2EbmaeZ0BRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEwOOjKrftMrnwl7Sf1xlgRIARARdl3QX3i5+/dgAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">6</td>
-<td style="text-align: left;">Nivel_educacional [numeric]</td>
+<td style="text-align: left;">Nivel_educacional [factor]</td>
 <td style="text-align: left; padding: 8; vertical-align: middle;"><table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <tbody>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">Mean (sd) : 2.8 (0.7)</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">1. No asistió</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">min ≤ med ≤ max:</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">2. Educ. Básica</td>
 </tr>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">1 ≤ 3 ≤ 4</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">3. Educ. Media</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">IQR (CV) : 1 (0.3)</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">4. Educ. Superior</td>
 </tr>
 </tbody>
 </table></td>
 <td style="text-align: left; padding: 0; vertical-align: middle;"><table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <tbody>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">1</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">15</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">1.1%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">15</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">1.1%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">2</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">488</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">34.4%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">1404</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">98.9%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">3</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">639</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">45.0%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">0</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">0.0%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">4</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">277</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">19.5%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">0</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">0.0%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAFAAAABmBAMAAACuHAsuAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwECROhICscAAAAXElEQVRYw2NgGBpASZAQGFU4qnBUIVkKCaqjnUIlnABNobIxDmA0qnBU4YhSSHSeGcB8TYUCAAYIBQ88mEYVjiocEQqJzjODJ1/jVojqa6NRhaMKR6pCovPMYAcAeayZIFqsHOAAAAAASUVORK5CYII=" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAKEAAABmBAMAAABRkuyJAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwEGCKjJwg2AAAAWklEQVRo3u3VQQ2AMAAEwUoAB7RIqH9vfHDAheSSWQHz3TGUap2pDiKRSCQSfxBjYJW4Yl2veO9URCKRSOwX859puGuDOIlEIpFIrBJjYJU4iUQikUisEvW9B1LznKDYVoyLAAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">7</td>
-<td style="text-align: left;">Trabajo_oficio [numeric]</td>
+<td style="text-align: left;">Trabajo_oficio [factor]</td>
 <td style="text-align: left; padding: 8; vertical-align: middle;"><table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <tbody>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">Mean (sd) : 2.8 (1)</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">1. Gestión y Profesionales</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">min ≤ med ≤ max:</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">2. Administración y Servicio</td>
 </tr>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">1 ≤ 3 ≤ 4</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">3. Ocupaciones Manuales y Té</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">IQR (CV) : 1.5 (0.3)</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">4. Ocupaciones generales y M</td>
 </tr>
 </tbody>
 </table></td>
 <td style="text-align: left; padding: 0; vertical-align: middle;"><table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <tbody>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">1</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">201</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">14.2%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">1064</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">75.0%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">2</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">246</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">17.3%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">355</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">25.0%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">3</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">617</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">43.5%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">0</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">0.0%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">4</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">355</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">25.0%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">0</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">0.0%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAE4AAABmBAMAAACXe7p1AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwECROhICscAAAAYUlEQVRIx+3TwQkAIQxEUVtICasdZPvvTQ+KCzvgXISg88/vksCkFL88M1h35R25nNw1jt2Hrdrk8reHubclJ3eJY/dhqyLtHIX+AnI5uQMdu49A+4Xuf6/LyR3v2H1ErgI87ZRFrIH/9gAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAH0AAABmBAMAAAAUv4NOAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwEGCKjJwg2AAAAXUlEQVRYw+3UqwGAMAxAwY4AG/DZoOy/GwYHAhJBofd0TiQipWgJNh1+3WLxPM+/7bP/bww2NOIvVnvkz/evPM/zn/DZ/3dr+Md+5nme50M+yJvx2f15nud79T23AwtxLEQHLS8MAAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">8</td>
-<td style="text-align: left;">Sistema_salud [numeric]</td>
+<td style="text-align: left;">Sistema_salud [factor]</td>
 <td style="text-align: left; padding: 8; vertical-align: middle;"><table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <tbody>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">Mean (sd) : 2.1 (0.4)</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">1. Otro sistema</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">min ≤ med ≤ max:</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">2. FONASA</td>
 </tr>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">1 ≤ 2 ≤ 5</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">3. Isapre</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">IQR (CV) : 0 (0.2)</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">4. FF.AA.</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">5. Particular</td>
 </tr>
 </tbody>
 </table></td>
 <td style="text-align: left; padding: 0; vertical-align: middle;"><table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <tbody>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">1</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">1</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">0.1%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">15</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">1.1%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">2</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">1330</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">93.7%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">1</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">0.1%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">3</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">49</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">3.5%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">1330</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">93.7%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">4</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">24</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">1.7%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">49</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">3.5%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">5</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">15</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">1.1%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">24</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">1.7%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAJkAAAB9BAMAAABDp9wdAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwECROhICscAAAAdElEQVRo3u3WsQ2AMBRDQUaADQjZgOy/Gw1lGpAl+NK9Aa61l0Vva1uilUaj0Wi0iRbBSmhHpP3W+khEo9FotO+07C78eQHjexrU+jhpNBqNVlrL7kKAKqIdLal1Go1GoxXXsruQsGpoiRdCo9FoNNpc0/Mu/2LtjwPzPHUAAAAASUVORK5CYII=" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAJkAAAB9BAMAAABDp9wdAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwEGCKjJwg2AAAAcklEQVRo3u3VMQ2AQBQFQSSAA+7OAfj3RkNJA3kEfjIrYNqdJj2tL4lmGo1Go9EutAhWQms0Go1Go72mRbASWo+0ntrYE9FoNBrtOy37hT8fMP7ToDb2jUaj0WiltewXAlQRrbekNmg0Go1WXMt+Qfc7AOeZ7Y/4I8i4AAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">9</td>
-<td style="text-align: left;">Red_apoyo [numeric]</td>
+<td style="text-align: left;">Red_apoyo [factor]</td>
 <td style="text-align: left; padding: 8; vertical-align: middle;"><table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <tbody>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">Mean (sd) : 1.9 (1.4)</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">1. No participa</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">min ≤ med ≤ max:</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">2. Organizaciones Comunitari</td>
 </tr>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">1 ≤ 1 ≤ 8</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">3. Organizaciones culturales</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: left; padding: 0; margin: 0; border: 0;">IQR (CV) : 1 (0.7)</td>
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">4. Organizaciones Religiosas</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">5. Organizaciones de Grupos</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">6. Organizaciones de Volunta</td>
+</tr>
+<tr class="odd" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">7. Organizaicones corportati</td>
+</tr>
+<tr class="even" style="background-color:transparent">
+<td style="text-align: left; padding: 0; margin: 0; border: 0;">8. Otros</td>
 </tr>
 </tbody>
 </table></td>
 <td style="text-align: left; padding: 0; vertical-align: middle;"><table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <tbody>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">1</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">763</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">53.8%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">0</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">0.0%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">2</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">357</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">25.2%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">1120</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">78.9%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">3</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">79</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">5.6%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">180</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">12.7%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">4</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">165</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">11.6%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">79</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">5.6%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">5</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">15</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">1.1%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">40</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">2.8%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">6</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">3</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">0.2%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">0</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">0.0%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="odd" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">7</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">24</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">1.7%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">0</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">0.0%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 <tr class="even" style="background-color:transparent">
-<td style="text-align: right; padding: 0 2px 0 7px; margin: 0; border: 0;">8</td>
-<td style="text-align: left; padding: 0 2px; border: 0;">:</td>
-<td style="text-align: right; padding: 0 4px 0 6px; margin: 0; border: 0;">13</td>
-<td style="text-align: left; padding: 0; border: 0;">(</td>
-<td style="text-align: right; padding: 0 2px; margin: 0; border: 0;">0.9%</td>
-<td style="text-align: left; padding: 0 4px 0 0; border: 0;">)</td>
+<td style="text-align: right; padding: 0 5px 0 7px; margin: 0; border: 0;">0</td>
+<td style="text-align: left; padding: 0 2px 0 0; border: 0;">(</td>
+<td style="text-align: right; padding: 0; border: 0;">0.0%</td>
+<td style="text-align: left; padding: 0 4px 0 2px; border: 0;">)</td>
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAF0AAADEBAMAAAAPNjB7AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwECROhICscAAAAlklEQVRo3u3XwQ2AIBBEUUqQDkQ60P57MyZ6UnE2Ci7Jn/M7wCazgRD6zyRm3H1etODx+Pre2t8oZmjkL45a9Of5zHg8/idv7W8U03L/JIPf5oPH4+t4ax8F6tqXt+b1PO+3Mh6Pf+OtfYxivPqne+LxeL9e5G59wuPx3XqRt3vPiBc4fMbj8W68tb+a5j+Fx+O/9z1nBc7pwVE9eGgZAAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAIMAAADEBAMAAABO7o+BAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwEGCKjJwg2AAAAoElEQVRo3u3VwQ3CMBAEwJQQOsDQAfTfWxSBUL5e7mFbs/+bx550t21yTbvF2REIBAIRE7kwGPHIc/8Sz3ccBAKBmJMouJ1jPIHSPxITv428EAgEYgai4PB1Dy5MnEW2/4hzqQgEAjEPUXD4suk1ibjM61IRCARiJqLg8KXzKxINgUAgEN1ELgxGFHSBQCAQiH4iFwYjCrpAIBAIRD8hnxw8WbX41pd4kQAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -755,7 +730,7 @@ No   Variable                Stats / Values             Freqs (% of Valid)   Gra
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAJ8AAACVBAMAAAC0rjW1AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwECROhICscAAAAc0lEQVRo3u3VMRWAMBAFwUgAB1wiAf/eaHDAL3KPWQHT7hhKNFNdL7juUEAgEAjsBsafcqY62oCzwuACAoFA4F/B+FNCXCewgEAgEAjcFUx5jcACAoFAIHBXMOU1AgsIBAKBwF3BlNcILCAQCAQCdwX1rQdfp36TrJj8agAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAJ8AAACVBAMAAAC0rjW1AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwEGCKjJwg2AAAAc0lEQVRo3u3VMRWAMBAFwUgAB1wiAf/eaHDAL3KPWQHT7hhKNFNdL7juUEAgEAjsBsafcqY62oCzwuACAoFA4F/B+FNCXCewgEAgEAjcFUx5jcACAoFAIHBXMOU1AgsIBAKBwF3BlNcILCAQCAQCdwX1rQdfp36TrJj8agAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -779,7 +754,7 @@ No   Variable                Stats / Values             Freqs (% of Valid)   Gra
 </tbody>
 </table></td>
 <td style="text-align: left; vertical-align: middle;">12 distinct values</td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAJgAAABuBAMAAAApJ8cWAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwECROhICscAAAAmElEQVRo3u3Z3QmAIBRAYVewDdINcv/dopRQNMR77SE859HwwyCyH2NIkq1zMTtQA9ui4sPVocVuJYCBgYGBgYGBLYOlh6lJWJwPBvZvbOQ9pYuNrA8MDAwMDAwsPFvxPgeLQ2BgYGBgcsxl3w3UWGPm11hvWxnCfGd9YItj7z8+BVg60LiC5Vioz1mLuTwtVgyVtyBlhiSdpIclqL0I06oAAAAASUVORK5CYII=" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAJgAAABuBAMAAAApJ8cWAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwEGCKjJwg2AAAAmElEQVRo3u3Z3QmAIBRAYVewDdINcv/dopRQNMR77SE859HwwyCyH2NIkq1zMTtQA9ui4sPVocVuJYCBgYGBgYGBLYOlh6lJWJwPBvZvbOQ9pYuNrA8MDAwMDAwsPFvxPgeLQ2BgYGBgcsxl3w3UWGPm11hvWxnCfGd9YItj7z8+BVg60LiC5Vioz1mLuTwtVgyVtyBlhiSdpIclqL0I06oAAAAASUVORK5CYII=" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -801,16 +776,16 @@ No   Variable                Stats / Values             Freqs (% of Valid)   Gra
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#3.1 Gráficos:</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(Proc_data<span class="sc">$</span>Nivel_educacional)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>x &lt;numeric&gt; 
-# total N=1419 valid N=1419 mean=2.83 sd=0.74
+<pre><code>x &lt;categorical&gt; 
+# total N=1419 valid N=1419 mean=1.99 sd=0.10
 
-Value |   N | Raw % | Valid % | Cum. %
---------------------------------------
-    1 |  15 |  1.06 |    1.06 |   1.06
-    2 | 488 | 34.39 |   34.39 |  35.45
-    3 | 639 | 45.03 |   45.03 |  80.48
-    4 | 277 | 19.52 |   19.52 | 100.00
- &lt;NA&gt; |   0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+Value          |    N | Raw % | Valid % | Cum. %
+------------------------------------------------
+No asistió     |   15 |  1.06 |    1.06 |   1.06
+Educ. Básica   | 1404 | 98.94 |   98.94 | 100.00
+Educ. Media    |    0 |  0.00 |    0.00 | 100.00
+Educ. Superior |    0 |  0.00 |    0.00 | 100.00
+&lt;NA&gt;           |    0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Proc_data, <span class="fu">aes</span>(<span class="at">x =</span> Nivel_educacional)) <span class="sc">+</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"coral"</span>) <span class="sc">+</span> </span>
@@ -849,17 +824,17 @@ Value |    N | Raw % | Valid % | Cum. %
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(Proc_data<span class="sc">$</span>Sistema_salud)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>x &lt;numeric&gt; 
-# total N=1419 valid N=1419 mean=2.10 sd=0.43
+<pre><code>x &lt;categorical&gt; 
+# total N=1419 valid N=1419 mean=3.05 sd=0.38
 
-Value |    N | Raw % | Valid % | Cum. %
----------------------------------------
-    1 |    1 |  0.07 |    0.07 |   0.07
-    2 | 1330 | 93.73 |   93.73 |  93.80
-    3 |   49 |  3.45 |    3.45 |  97.25
-    4 |   24 |  1.69 |    1.69 |  98.94
-    5 |   15 |  1.06 |    1.06 | 100.00
- &lt;NA&gt; |    0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+Value        |    N | Raw % | Valid % | Cum. %
+----------------------------------------------
+Otro sistema |   15 |  1.06 |    1.06 |   1.06
+FONASA       |    1 |  0.07 |    0.07 |   1.13
+Isapre       | 1330 | 93.73 |   93.73 |  94.86
+FF.AA.       |   49 |  3.45 |    3.45 |  98.31
+Particular   |   24 |  1.69 |    1.69 | 100.00
+&lt;NA&gt;         |    0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Proc_data, <span class="fu">aes</span>(<span class="at">x =</span> Sistema_salud)) <span class="sc">+</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"coral"</span>) <span class="sc">+</span> </span>
@@ -898,19 +873,19 @@ Value |    N | Raw % | Valid % | Cum. %
 <span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>cor_proc_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                          nse Nivel_educacional Trabajo_oficio Sistema_salud
-nse                1.00000000       0.059866575    -0.02432131    0.02604894
-Nivel_educacional  0.05986657       1.000000000    -0.47603651    0.17036329
-Trabajo_oficio    -0.02432131      -0.476036514     1.00000000   -0.09828412
-Sistema_salud      0.02604894       0.170363293    -0.09828412    1.00000000
-Red_apoyo         -0.14614948      -0.056437626     0.05181299   -0.09011628
-Tipo_vivienda     -0.04422213      -0.003823482     0.02329462    0.02958766
+nse                1.00000000        0.02068696    -0.01801663    0.01253973
+Nivel_educacional  0.02068696        1.00000000    -0.01984537    0.01271281
+Trabajo_oficio    -0.01801663       -0.01984537     1.00000000   -0.01080658
+Sistema_salud      0.01253973        0.01271281    -0.01080658    1.00000000
+Red_apoyo         -0.15466686        0.03747016     0.02169477   -0.04300371
+Tipo_vivienda     -0.04422213        0.01067070     0.02191195    0.04836655
                     Red_apoyo Tipo_vivienda
-nse               -0.14614948  -0.044222127
-Nivel_educacional -0.05643763  -0.003823482
-Trabajo_oficio     0.05181299   0.023294618
-Sistema_salud     -0.09011628   0.029587656
-Red_apoyo          1.00000000   0.014941982
-Tipo_vivienda      0.01494198   1.000000000</code></pre>
+nse               -0.15466686   -0.04422213
+Nivel_educacional  0.03747016    0.01067070
+Trabajo_oficio     0.02169477    0.02191195
+Sistema_salud     -0.04300371    0.04836655
+Red_apoyo          1.00000000    0.04705145
+Tipo_vivienda      0.04705145    1.00000000</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot.mixed</span>(cor_proc_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -938,47 +913,47 @@ Tipo_vivienda      0.01494198   1.000000000</code></pre>
 Reliability analysis   
 Call: psych::alpha(x = Proc_data_cor, check.keys = TRUE)
 
-  raw_alpha std.alpha G6(smc) average_r  S/N   ase mean   sd median_r
-      0.33      0.35    0.36     0.084 0.55 0.025  5.6 0.39    0.052
+  raw_alpha std.alpha G6(smc) average_r  S/N   ase mean  sd median_r
+      0.15      0.12    0.11     0.021 0.13 0.032  4.1 0.2    0.018
 
     95% confidence boundaries 
          lower alpha upper
-Feldt     0.27  0.33  0.38
-Duhachek  0.28  0.33  0.38
+Feldt     0.08  0.15  0.22
+Duhachek  0.09  0.15  0.22
 
  Reliability if an item is dropped:
-                  raw_alpha std.alpha G6(smc) average_r  S/N alpha se  var.r
-nse                    0.31      0.35    0.35     0.096 0.53    0.027 0.0211
-Nivel_educacional      0.18      0.20    0.18     0.049 0.26    0.030 0.0025
-Trabajo_oficio-        0.20      0.24    0.21     0.058 0.31    0.028 0.0039
-Sistema_salud          0.30      0.33    0.34     0.090 0.50    0.027 0.0200
-Red_apoyo-             0.39      0.33    0.34     0.090 0.49    0.021 0.0215
-Tipo_vivienda-         0.35      0.41    0.40     0.120 0.68    0.025 0.0180
+                  raw_alpha std.alpha G6(smc) average_r    S/N alpha se   var.r
+nse-                  0.073    0.0535  0.0465    0.0112 0.0565    0.036 0.00092
+Nivel_educacional     0.159    0.1440  0.1268    0.0326 0.1683    0.034 0.00258
+Trabajo_oficio        0.155    0.1210  0.1091    0.0268 0.1376    0.032 0.00304
+Sistema_salud-        0.168    0.1399  0.1230    0.0315 0.1627    0.032 0.00242
+Red_apoyo             0.032    0.0082  0.0092    0.0017 0.0083    0.039 0.00072
+Tipo_vivienda         0.153    0.1115  0.0999    0.0245 0.1256    0.032 0.00258
                   med.r
-nse               0.054
-Nivel_educacional 0.035
-Trabajo_oficio-   0.050
-Sistema_salud     0.048
-Red_apoyo-        0.035
-Tipo_vivienda-    0.075
+nse-              0.016
+Nivel_educacional 0.022
+Trabajo_oficio    0.025
+Sistema_salud-    0.022
+Red_apoyo         0.011
+Tipo_vivienda     0.015
 
  Item statistics 
-                     n raw.r std.r r.cor r.drop mean   sd
-nse               1419  0.30  0.45 0.186  0.134  1.2 0.41
-Nivel_educacional 1419  0.59  0.61 0.576  0.318  2.8 0.74
-Trabajo_oficio-   1419  0.62  0.57 0.514  0.255  8.2 0.97
-Sistema_salud     1419  0.33  0.46 0.223  0.152  2.1 0.43
-Red_apoyo-        1419  0.67  0.47 0.222  0.113  9.1 1.39
-Tipo_vivienda-    1419  0.24  0.36 0.034  0.022  9.9 0.52
+                     n raw.r std.r   r.cor r.drop mean   sd
+nse-              1419 0.458  0.47  0.2784 0.1314  9.8 0.41
+Nivel_educacional 1419 0.093  0.39 -0.0027 0.0084  2.0 0.10
+Trabajo_oficio    1419 0.388  0.41  0.0642 0.0324  1.3 0.43
+Sistema_salud-    1419 0.324  0.39  0.0119 0.0121  8.0 0.38
+Red_apoyo         1419 0.681  0.51  0.3949 0.1314  2.3 0.71
+Tipo_vivienda     1419 0.465  0.42  0.0974 0.0408  1.1 0.52
 
 Non missing response frequency for each item
-                     1    2    3    4    5 6    7    8 9 10 miss
-nse               0.78 0.22 0.00 0.00 0.00 0 0.00 0.00 0  0    0
-Nivel_educacional 0.01 0.34 0.45 0.20 0.00 0 0.00 0.00 0  0    0
-Trabajo_oficio    0.14 0.17 0.43 0.25 0.00 0 0.00 0.00 0  0    0
-Sistema_salud     0.00 0.94 0.03 0.02 0.01 0 0.00 0.00 0  0    0
-Red_apoyo         0.54 0.25 0.06 0.12 0.01 0 0.02 0.01 0  0    0
-Tipo_vivienda     0.98 0.01 0.00 0.00 0.00 0 0.00 0.00 0  0    0</code></pre>
+                     1    2    3    4    5 7 9 10 miss
+nse               0.78 0.22 0.00 0.00 0.00 0 0  0    0
+Nivel_educacional 0.01 0.99 0.00 0.00 0.00 0 0  0    0
+Trabajo_oficio    0.75 0.25 0.00 0.00 0.00 0 0  0    0
+Sistema_salud     0.01 0.00 0.94 0.03 0.02 0 0  0    0
+Red_apoyo         0.00 0.79 0.13 0.06 0.03 0 0  0    0
+Tipo_vivienda     0.98 0.01 0.00 0.00 0.00 0 0  0    0</code></pre>
 </div>
 </div>
 <p>Podemos observar que tenemos un Alpha de Cronbach bajo, de 0,33, lo que indica una baja consistencia en los datos.<br>
@@ -995,39 +970,39 @@ Reliability analysis
 Call: psych::alpha(x = dplyr::select(Proc_data_cor, nse, Nivel_educacional, 
     Trabajo_oficio, Sistema_salud), check.keys = TRUE)
 
-  raw_alpha std.alpha G6(smc) average_r  S/N   ase mean   sd median_r
-      0.45       0.4    0.39      0.14 0.66 0.019  2.3 0.42    0.079
+  raw_alpha std.alpha G6(smc) average_r   S/N   ase mean   sd median_r
+     0.046      0.06   0.046     0.016 0.064 0.039  2.8 0.18    0.015
 
     95% confidence boundaries 
          lower alpha upper
-Feldt     0.40  0.45  0.50
-Duhachek  0.41  0.45  0.49
+Feldt    -0.04  0.05  0.12
+Duhachek -0.03  0.05  0.12
 
  Reliability if an item is dropped:
-                  raw_alpha std.alpha G6(smc) average_r  S/N alpha se  var.r
-nse                    0.51      0.50   0.443     0.248 0.99    0.018 0.0402
-Nivel_educacional      0.12      0.14   0.097     0.050 0.16    0.032 0.0018
-Trabajo_oficio-        0.22      0.22   0.164     0.085 0.28    0.032 0.0057
-Sistema_salud          0.46      0.41   0.383     0.187 0.69    0.020 0.0631
-                  med.r
-nse               0.170
-Nivel_educacional 0.026
-Trabajo_oficio-   0.060
-Sistema_salud     0.060
+                  raw_alpha std.alpha G6(smc) average_r   S/N alpha se
+nse                   0.027     0.042   0.029     0.014 0.044    0.039
+Nivel_educacional     0.040     0.040   0.027     0.014 0.042    0.044
+Trabajo_oficio-       0.030     0.045   0.030     0.015 0.047    0.040
+Sistema_salud         0.039     0.056   0.038     0.020 0.060    0.039
+                      var.r med.r
+nse               0.0000227 0.013
+Nivel_educacional 0.0000142 0.013
+Trabajo_oficio-   0.0000217 0.013
+Sistema_salud     0.0000019 0.020
 
  Item statistics 
                      n raw.r std.r r.cor r.drop mean   sd
-nse               1419  0.29  0.46 0.077   0.05  1.2 0.41
-Nivel_educacional 1419  0.78  0.71 0.639   0.47  2.8 0.74
-Trabajo_oficio-   1419  0.82  0.67 0.555   0.39  3.2 0.97
-Sistema_salud     1419  0.40  0.54 0.218   0.15  2.1 0.43
+nse               1419  0.59  0.51 0.119  0.025  1.2 0.41
+Nivel_educacional 1419  0.17  0.51 0.124  0.031  2.0 0.10
+Trabajo_oficio-   1419  0.61  0.51 0.113  0.024  4.7 0.43
+Sistema_salud     1419  0.54  0.51 0.083  0.018  3.0 0.38
 
 Non missing response frequency for each item
                      1    2    3    4    5 miss
 nse               0.78 0.22 0.00 0.00 0.00    0
-Nivel_educacional 0.01 0.34 0.45 0.20 0.00    0
-Trabajo_oficio    0.14 0.17 0.43 0.25 0.00    0
-Sistema_salud     0.00 0.94 0.03 0.02 0.01    0</code></pre>
+Nivel_educacional 0.01 0.99 0.00 0.00 0.00    0
+Trabajo_oficio    0.75 0.25 0.00 0.00 0.00    0
+Sistema_salud     0.01 0.00 0.94 0.03 0.02    0</code></pre>
 </div>
 </div>
 <p>Podemos observar que el Alpa de Cronbach aumenta a 0,45, lo que nos indica que al eliminar las variables mencionadas anteriormente, la consistencia interna de nuestro grupo de variables, aumenta y por ende mejora.</p>
@@ -1045,7 +1020,7 @@ Sistema_salud     0.00 0.94 0.03 0.02 0.01    0</code></pre>
 <span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Proc_data<span class="sc">$</span>indice_pobreza_rural)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-   7.00   10.00   11.00   10.87   12.00   18.00 </code></pre>
+  7.000   9.000  10.000   9.825  10.000  14.000 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Proc_data, <span class="fu">aes</span>(<span class="at">x =</span> indice_pobreza_rural)) <span class="sc">+</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.6</span>, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"yellow"</span>) <span class="sc">+</span>  </span>
