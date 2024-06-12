@@ -135,7 +135,7 @@ div.csl-indent {
 <p>Con lo anterior, llevaremos un análisis en base a los resultados obtenidos por la CASEN2022, con el fin de ver como se comporta la pobreza multidimensional en la región del Biobío. Para esto procederemos a manipular la base de datos con el fin de poder observar las distintas mediciones y su comportamiento.</p>
 <section id="trabajo-en-r-ajustes-iniciales-carga-de-paquetes-y-base-de-datos" class="level3">
 <h3 class="anchored" data-anchor-id="trabajo-en-r-ajustes-iniciales-carga-de-paquetes-y-base-de-datos">Trabajo en R: Ajustes iniciales, carga de paquetes y base de datos:</h3>
-<p>1419</p>
+<p>Cabe mencionar, que para efectos de este trabajo, y por motivos de optimización del documento, trabajaremos con una base de datos ya trabajada (Proc_data), la cual proviene de una serie de filtros, recodificaciones y tratamiento de casos perdidos aplicados a la base de datos de la encuensta CASEN2022. Dejando así un total de 1419 observaciones y 10 variables a trabajar.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Ajustes iniciales: </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>) </span>
@@ -154,10 +154,14 @@ div.csl-indent {
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>               sjPlot, <span class="co">#Tablas y gráficos</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>               corrplot, <span class="co"># Correlaciones</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>               sessioninfo, <span class="co"># Información de la sesión de trabajo</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>               ggplot2) <span class="co"># Para la mayoría de los gráficos</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 1.Base de datos:</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"Input/Proc_data.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>               ggplot2,  <span class="co"># Para la mayoría de los gráficos</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>               mice,   <span class="co">#Para imputar NA's</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>               fastDummies, </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>               ggeffects,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>               texreg)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 1.Base de datos:</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"Input/Proc_data.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="descriptivos" class="level3">
@@ -281,7 +285,7 @@ No   Variable                               Label                               
 </tbody>
 </table></td>
 <td style="text-align: left; vertical-align: middle;">68 distinct values</td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAJgAAABuBAMAAAApJ8cWAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwGHRuC0aAVAAAAuklEQVRo3u3YawqAIBBGUbdQO8h2UPvfWypkSdljnCDrfj9CpTmISIbGEEmak7TWpTt76wLmHTu6aGC9c4YvYmGVtLBQroCFPZDB0glfwXxVBkuHwWrDbNwoClgfe2BgFWDz5lfB5gZYMXZ0RN3GxoPpgYFVjcV/dA1sWwUGBgYGBgYGBvYYlrm1lWH+AaaJ7VyUybFMFdhfsJ0LDjkWemBg/8bSA7QQ8433YsvnQwGLi2fXR11xDJFkAvjezeIOONDiAAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAJgAAABuBAMAAAApJ8cWAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwQGy6akxxyAAAAuklEQVRo3u3YawqAIBBGUbdQO8h2UPvfWypkSdljnCDrfj9CpTmISIbGEEmak7TWpTt76wLmHTu6aGC9c4YvYmGVtLBQroCFPZDB0glfwXxVBkuHwWrDbNwoClgfe2BgFWDz5lfB5gZYMXZ0RN3GxoPpgYFVjcV/dA1sWwUGBgYGBgYGBvYYlrm1lWH+AaaJ7VyUybFMFdhfsJ0LDjkWemBg/8bSA7QQ8433YsvnQwGLi2fXR11xDJFkAvjezeIOONDiAAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -322,7 +326,7 @@ No   Variable                               Label                               
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAG4AAAA3BAMAAAAf9GL3AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwGHRuC0aAVAAAAQklEQVRIx2NgGP5AiVQA1adsTBowGtU3qm9U36g+IvWRWy4JkgoGSB9ujyji1Yc7PEf1jeob1TeqjzJ95JZLwxkAACLoaPnq8OE/AAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAG4AAAA3BAMAAAAf9GL3AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwQGy6akxxyAAAAQklEQVRIx2NgGP5AiVQA1adsTBowGtU3qm9U36g+IvWRWy4JkgoGSB9ujyji1Yc7PEf1jeob1TeqjzJ95JZLwxkAACLoaPnq8OE/AAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -365,7 +369,7 @@ No   Variable                               Label                               
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAIIAAABOBAMAAAAeB9MBAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwGHRuC0aAVAAAAVElEQVRYw+3UsQ0AIAgAQVZwBHQD3X83G22oFGKi5r/nCkgQoVn2N4TSvFUEBASEB4T4n0z+vhLsenRbsNdEQEBAuEmIf7n1gb8FRUBAQEA4LJBIB2/D15f07mrPAAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAIIAAABOBAMAAAAeB9MBAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwQGy6akxxyAAAAVElEQVRYw+3UsQ0AIAgAQVZwBHQD3X83G22oFGKi5r/nCkgQoVn2N4TSvFUEBASEB4T4n0z+vhLsenRbsNdEQEBAuEmIf7n1gb8FRUBAQEA4LJBIB2/D15f07mrPAAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -386,7 +390,7 @@ No   Variable                               Label                               
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAKIAAAAfCAQAAADOr947AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAd0SU1FB+gGDAYdG4LRoBUAAACGSURBVGje7dlBCoAgFADRfni6btAJu4HXq6XZKnRAynkrRRAZ0I1xLuq1jj7AHxgRYERAuk8OH8jX9ijjVC9to8/2EbmaeZ0BRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEwOOjKrftMrnwl7Sf1xlgRIARARdl3QX3i5+/dgAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAKIAAAAfCAQAAADOr947AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAd0SU1FB+gGDBAbLpqTHHIAAACGSURBVGje7dlBCoAgFADRfni6btAJu4HXq6XZKnRAynkrRRAZ0I1xLuq1jj7AHxgRYERAuk8OH8jX9ijjVC9to8/2EbmaeZ0BRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEwOOjKrftMrnwl7Sf1xlgRIARARdl3QX3i5+/dgAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -407,7 +411,7 @@ No   Variable                               Label                               
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAKIAAAAfCAQAAADOr947AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAd0SU1FB+gGDAYdG4LRoBUAAACGSURBVGje7dlBCoAgFADRfni6btAJu4HXq6XZKnRAynkrRRAZ0I1xLuq1jj7AHxgRYERAuk8OH8jX9ijjVC9to8/2EbmaeZ0BRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEwOOjKrftMrnwl7Sf1xlgRIARARdl3QX3i5+/dgAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAKIAAAAfCAQAAADOr947AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAd0SU1FB+gGDBAbLpqTHHIAAACGSURBVGje7dlBCoAgFADRfni6btAJu4HXq6XZKnRAynkrRRAZ0I1xLuq1jj7AHxgRYERAuk8OH8jX9ijjVC9to8/2EbmaeZ0BRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEgBEBRgQYEWBEwOOjKrftMrnwl7Sf1xlgRIARARdl3QX3i5+/dgAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -459,7 +463,7 @@ No   Variable                               Label                               
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAFAAAABmBAMAAACuHAsuAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwGHRuC0aAVAAAAXElEQVRYw2NgGBpASZAQGFU4qnBUIVkKCaqjnUIlnABNobIxDmA0qnBU4YhSSHSeGcB8TYUCAAYIBQ88mEYVjiocEQqJzjODJ1/jVojqa6NRhaMKR6pCovPMYAcAeayZIFqsHOAAAAAASUVORK5CYII=" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAFAAAABmBAMAAACuHAsuAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwQGy6akxxyAAAAXElEQVRYw2NgGBpASZAQGFU4qnBUIVkKCaqjnUIlnABNobIxDmA0qnBU4YhSSHSeGcB8TYUCAAYIBQ88mEYVjiocEQqJzjODJ1/jVojqa6NRhaMKR6pCovPMYAcAeayZIFqsHOAAAAAASUVORK5CYII=" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -511,7 +515,7 @@ No   Variable                               Label                               
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAE4AAABmBAMAAACXe7p1AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwGHRuC0aAVAAAAYUlEQVRIx+3TwQkAIQxEUVtICasdZPvvTQ+KCzvgXISg88/vksCkFL88M1h35R25nNw1jt2Hrdrk8reHubclJ3eJY/dhqyLtHIX+AnI5uQMdu49A+4Xuf6/LyR3v2H1ErgI87ZRFrIH/9gAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAE4AAABmBAMAAACXe7p1AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwQGy6akxxyAAAAYUlEQVRIx+3TwQkAIQxEUVtICasdZPvvTQ+KCzvgXISg88/vksCkFL88M1h35R25nNw1jt2Hrdrk8reHubclJ3eJY/dhqyLtHIX+AnI5uQMdu49A+4Xuf6/LyR3v2H1ErgI87ZRFrIH/9gAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -572,7 +576,7 @@ No   Variable                               Label                               
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAJkAAAB9BAMAAABDp9wdAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwGHRuC0aAVAAAAdElEQVRo3u3WsQ2AMBRDQUaADQjZgOy/Gw1lGpAl+NK9Aa61l0Vva1uilUaj0Wi0iRbBSmhHpP3W+khEo9FotO+07C78eQHjexrU+jhpNBqNVlrL7kKAKqIdLal1Go1GoxXXsruQsGpoiRdCo9FoNNpc0/Mu/2LtjwPzPHUAAAAASUVORK5CYII=" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAJkAAAB9BAMAAABDp9wdAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwQGy6akxxyAAAAdElEQVRo3u3WsQ2AMBRDQUaADQjZgOy/Gw1lGpAl+NK9Aa61l0Vva1uilUaj0Wi0iRbBSmhHpP3W+khEo9FotO+07C78eQHjexrU+jhpNBqNVlrL7kKAKqIdLal1Go1GoxXXsruQsGpoiRdCo9FoNNpc0/Mu/2LtjwPzPHUAAAAASUVORK5CYII=" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -660,7 +664,7 @@ No   Variable                               Label                               
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAF0AAADEBAMAAAAPNjB7AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwGHRuC0aAVAAAAlklEQVRo3u3XwQ2AIBBEUUqQDkQ60P57MyZ6UnE2Ci7Jn/M7wCazgRD6zyRm3H1etODx+Pre2t8oZmjkL45a9Of5zHg8/idv7W8U03L/JIPf5oPH4+t4ax8F6tqXt+b1PO+3Mh6Pf+OtfYxivPqne+LxeL9e5G59wuPx3XqRt3vPiBc4fMbj8W68tb+a5j+Fx+O/9z1nBc7pwVE9eGgZAAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAF0AAADEBAMAAAAPNjB7AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwQGy6akxxyAAAAlklEQVRo3u3XwQ2AIBBEUUqQDkQ60P57MyZ6UnE2Ci7Jn/M7wCazgRD6zyRm3H1etODx+Pre2t8oZmjkL45a9Of5zHg8/idv7W8U03L/JIPf5oPH4+t4ax8F6tqXt+b1PO+3Mh6Pf+OtfYxivPqne+LxeL9e5G59wuPx3XqRt3vPiBc4fMbj8W68tb+a5j+Fx+O/9z1nBc7pwVE9eGgZAAAAAElFTkSuQmCC" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -736,7 +740,7 @@ No   Variable                               Label                               
 </tr>
 </tbody>
 </table></td>
-<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAJ8AAACVBAMAAAC0rjW1AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwGHRuC0aAVAAAAc0lEQVRo3u3VMRWAMBAFwUgAB1wiAf/eaHDAL3KPWQHT7hhKNFNdL7juUEAgEAjsBsafcqY62oCzwuACAoFA4F/B+FNCXCewgEAgEAjcFUx5jcACAoFAIHBXMOU1AgsIBAKBwF3BlNcILCAQCAQCdwX1rQdfp36TrJj8agAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
+<td style="text-align: left; vertical-align: middle; padding: 0; background-color: transparent;"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAJ8AAACVBAMAAAC0rjW1AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAPUExURf////3+/aampvDw8P///7GHRIEAAAACdFJOUwAAdpPNOAAAAAFiS0dEAIgFHUgAAAAHdElNRQfoBgwQGy6akxxyAAAAc0lEQVRo3u3VMRWAMBAFwUgAB1wiAf/eaHDAL3KPWQHT7hhKNFNdL7juUEAgEAjsBsafcqY62oCzwuACAoFA4F/B+FNCXCewgEAgEAjcFUx5jcACAoFAIHBXMOU1AgsIBAKBwF3BlNcILCAQCAQCdwX1rQdfp36TrJj8agAAAABJRU5ErkJggg==" class="img-fluid" style="border:none;background-color:transparent;padding:0;max-width:max-content;"></td>
 <td style="text-align: center;">1419 (100.0%)</td>
 <td style="text-align: center;">0 (0.0%)</td>
 </tr>
@@ -756,7 +760,29 @@ No   Variable                               Label                               
 <h3 class="anchored" data-anchor-id="gráficos-univariados">Gráficos univariados:</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#3.1 Gráficos:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(Proc_data<span class="sc">$</span>Nivel_educacional)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(Proc_data<span class="sc">$</span>nse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x &lt;categorical&gt; 
+# total N=1419 valid N=1419 mean=1.22 sd=0.41
+
+Value     |    N | Raw % | Valid % | Cum. %
+-------------------------------------------
+NSE Bajo  | 1113 | 78.44 |   78.44 |  78.44
+NSE Medio |  306 | 21.56 |   21.56 | 100.00
+NSE Alto  |    0 |  0.00 |    0.00 | 100.00
+&lt;NA&gt;      |    0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Proc_data, <span class="fu">aes</span>(<span class="at">x=</span>nse)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span> <span class="st">"coral"</span>) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">title=</span> <span class="st">"Nivel Socioeconómico"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Pobreza_rural_4_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(Proc_data<span class="sc">$</span>Nivel_educacional)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x &lt;categorical&gt; 
 # total N=1419 valid N=1419 mean=2.83 sd=0.74
@@ -769,17 +795,17 @@ Educ. Media    | 639 | 45.03 |   45.03 |  80.48
 Educ. Superior | 277 | 19.52 |   19.52 | 100.00
 &lt;NA&gt;           |   0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Proc_data, <span class="fu">aes</span>(<span class="at">x =</span> Nivel_educacional)) <span class="sc">+</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"coral"</span>) <span class="sc">+</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">title =</span> <span class="st">"Nivel educativo en áreas rurales de la 8va región"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Proc_data, <span class="fu">aes</span>(<span class="at">x =</span> Nivel_educacional)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"coral"</span>) <span class="sc">+</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">title =</span> <span class="st">"Nivel educativo en áreas rurales de la 8va región"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Pobreza_rural_4_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Pobreza_rural_4_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(Proc_data<span class="sc">$</span>Tipo_vivienda)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(Proc_data<span class="sc">$</span>Tipo_vivienda)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>v1. ¿Cuál es el tipo de vivienda que ocupa la persona entrevistada? (x) &lt;numeric&gt; 
 # total N=1419 valid N=1419 mean=1.05 sd=0.52
@@ -798,17 +824,17 @@ Value |                                                                         
    10 | 10. Vivienda precaria de materiales reutilizados (latas, plásticos, cartones, etc.) |    1 |  0.07 |    0.07 | 100.00
  &lt;NA&gt; |                                                                                &lt;NA&gt; |    0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Proc_data, <span class="fu">aes</span>(<span class="at">x =</span> Tipo_vivienda)) <span class="sc">+</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"coral"</span>) <span class="sc">+</span> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">title =</span> <span class="st">"Tipo de vivienda predominante en áreas rurales de la 8va región"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Proc_data, <span class="fu">aes</span>(<span class="at">x =</span> Tipo_vivienda)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"coral"</span>) <span class="sc">+</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">title =</span> <span class="st">"Tipo de vivienda predominante en áreas rurales de la 8va región"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Pobreza_rural_4_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Pobreza_rural_4_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(Proc_data<span class="sc">$</span>Sistema_salud)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(Proc_data<span class="sc">$</span>Sistema_salud)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x &lt;categorical&gt; 
 # total N=1419 valid N=1419 mean=2.10 sd=0.43
@@ -822,41 +848,43 @@ FF.AA.       |   24 |  1.69 |    1.69 |  98.94
 Particular   |   15 |  1.06 |    1.06 | 100.00
 &lt;NA&gt;         |    0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Proc_data, <span class="fu">aes</span>(<span class="at">x =</span> Sistema_salud)) <span class="sc">+</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"coral"</span>) <span class="sc">+</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">title =</span> <span class="st">"Sistema previsional de Salud que predomina"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Proc_data, <span class="fu">aes</span>(<span class="at">x =</span> Sistema_salud)) <span class="sc">+</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"coral"</span>) <span class="sc">+</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span> (<span class="at">title =</span> <span class="st">"Sistema previsional de Salud que predomina"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Pobreza_rural_4_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Pobreza_rural_4_files/figure-html/unnamed-chunk-3-4.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Podemos observar en el gráfico correspondiente al nivel educacional, que el nivel educativo que predomina en las personas que viven en áreas rurales de la 8va región corresponde a las categorías de Educación Básica y Educación Media.</p>
+<p>En cuanto al primer gráfico correspondiente al Nivel socioeconómico, podemos observar en primer lugar que no se observa el Nivel Socioeconómico alto, lo cual nos indica que en las áreas rurales de la región del Bíobio no se perciben personas pertenecientes a un nivel socioeconómico alto. A lo anterior, podemos observar que el NSE que predomina en estas áreas de la región, corresponde a un Nivel Socioeconómico bajo.</p>
+<p>Además, podemos observar en el gráfico correspondiente al nivel educacional, que el nivel educativo que predomina en las personas que viven en áreas rurales de la 8va región corresponde a las categorías de Educación Básica y Educación Media completa.</p>
 <p>Además, si observamos el gráfico correspondiente al tipo de vivienda, podemos observar que el tipo de vivienda que predomina en las áreas rurales de la 8va región corresponden a la primera categoría, la cual corresponde al tipo de vivienda de “casas aisladas (no pareadas)” siendo esta el 98,3% de la muestra.</p>
 <p>A lo anterior podemos agregar que el sistema previsional de salud que predomina en las áreas rurales de la región corresponde a una afiliación al sistema público FONASA, con un 92,8% de la muestra.</p>
 </section>
 <section id="correlación" class="level3">
 <h3 class="anchored" data-anchor-id="correlación">Correlación:</h3>
+<p>En este punto, nos interesa ver como se interrelacionan las variables. Para esto, procedemos a generar una nueva base (Proc_data_cor), a modo de no intervenir la base de datos original, y así tener un análisis mas prolijo para el trabajo.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#4.Correlación:</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Seleccionamos las variables de interés:</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>Proc_data_cor <span class="ot">&lt;-</span> Proc_data <span class="sc">%&gt;%</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(nse,</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>         Nivel_educacional,</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>         Trabajo_oficio,</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>         Sistema_salud,</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>         Red_apoyo,</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>         Tipo_vivienda)</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Realizamos la correlación</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>Proc_data_cor <span class="ot">&lt;-</span> <span class="fu">mutate_all</span>(Proc_data_cor, as.numeric)</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>cor_proc_data <span class="ot">&lt;-</span> <span class="fu">cor</span>(Proc_data_cor,</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>                     <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>cor_proc_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#4.Correlación:</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Seleccionamos las variables de interés:</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>Proc_data_cor <span class="ot">&lt;-</span> Proc_data <span class="sc">%&gt;%</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(nse,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>         Nivel_educacional,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>         Trabajo_oficio,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>         Sistema_salud,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>         Red_apoyo,</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>         Tipo_vivienda)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Realizamos la correlación</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>Proc_data_cor <span class="ot">&lt;-</span> <span class="fu">mutate_all</span>(Proc_data_cor, as.numeric)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>cor_proc_data <span class="ot">&lt;-</span> <span class="fu">cor</span>(Proc_data_cor,</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>                     <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>cor_proc_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                          nse Nivel_educacional Trabajo_oficio Sistema_salud
 nse                1.00000000       0.059866575    -0.02432131    0.02604894
@@ -873,7 +901,7 @@ Sistema_salud     -0.09011628   0.029587656
 Red_apoyo          1.00000000   0.014941982
 Tipo_vivienda      0.01494198   1.000000000</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot.mixed</span>(cor_proc_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot.mixed</span>(cor_proc_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -887,9 +915,9 @@ Tipo_vivienda      0.01494198   1.000000000</code></pre>
 <p>Finalmente, si observamos la relación entre el Nivel socioeconómico y las Redes de apoyo, podemos notar que la correlación es negativa y débil, lo que nos indica que en estas zonas es ligeramente probable que una persona dependa de Redes de apoyo si su NSE es más alto</p>
 <p>Por otra parte, para observar la consistencia del conjunto de variables que hemos seleccionado para medir el fenómeno, aplicaremos un test de Alpha de Cronbach para obtener información sobre la fiabilidad de la escala compuesta por dichas variables:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#5.Confiabilidad del conjunto:</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Alpha de Cronbach:</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>(Proc_data_cor, <span class="at">check.keys =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#5.Confiabilidad del conjunto:</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Alpha de Cronbach:</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>(Proc_data_cor, <span class="at">check.keys =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in psych::alpha(Proc_data_cor, check.keys = TRUE): Some items were negatively correlated with total scale and were automatically reversed.
  This is indicated by a negative sign for the variable name.</code></pre>
@@ -945,7 +973,7 @@ Tipo_vivienda     0.98 0.01 0.00 0.00 0.00 0 0.00 0.00 0  0    0</code></pre>
 <p>Podemos observar que tenemos un Alpha de Cronbach bajo, de 0,33, lo que indica una baja consistencia en los datos.<br>
 Con lo anterior, si omitimos las variables “Red_Apoyo” y “Tipo_vivienda”, podemos observar que el Alpha de Cronbach aumenta considerablemente, como se muestra en la siguiente tabla.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(Proc_data_cor, nse,Nivel_educacional, Trabajo_oficio, Sistema_salud),<span class="at">check.keys =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(Proc_data_cor, nse,Nivel_educacional, Trabajo_oficio, Sistema_salud),<span class="at">check.keys =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in psych::alpha(dplyr::select(Proc_data_cor, nse, Nivel_educacional, : Some items were negatively correlated with total scale and were automatically reversed.
  This is indicated by a negative sign for the variable name.</code></pre>
@@ -994,25 +1022,26 @@ Sistema_salud     0.00 0.94 0.03 0.02 0.01    0</code></pre>
 <p>Podemos observar que el Alpa de Cronbach aumenta a 0,45, lo que nos indica que al eliminar las variables mencionadas anteriormente, la consistencia interna de nuestro grupo de variables, aumenta y por ende mejora.</p>
 </section>
 <section id="creamos-un-índice-para-medir-la-pobreza-multidimensional-en-las-áreas-rurales-de-la-8va-región" class="level3">
-<h3 class="anchored" data-anchor-id="creamos-un-índice-para-medir-la-pobreza-multidimensional-en-las-áreas-rurales-de-la-8va-región">Creamos un índice para medir la pobreza multidimensional en las áreas rurales de la 8va región</h3>
+<h3 class="anchored" data-anchor-id="creamos-un-índice-para-medir-la-pobreza-multidimensional-en-las-áreas-rurales-de-la-8va-región">Creamos un índice para medir la pobreza multidimensional en las áreas rurales de la 8va región:</h3>
+<p>El índice de pobreza multidimensional es agregado a la base de datos original, pues este nos servirá para un análisis mas en profundización mas adelante.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Construcción de índice:</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>Proc_data <span class="ot">&lt;-</span> <span class="fu">mutate_all</span>(Proc_data, as.numeric)</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>Proc_data <span class="ot">&lt;-</span> Proc_data <span class="sc">%&gt;%</span> </span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">indice_pobreza_rural =</span> <span class="fu">sum</span>(nse, Nivel_educacional,Trabajo_oficio, Sistema_salud, Red_apoyo))</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Proc_data<span class="sc">$</span>indice_pobreza_rural)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Construcción de índice:</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>Proc_data <span class="ot">&lt;-</span> <span class="fu">mutate_all</span>(Proc_data, as.numeric)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>Proc_data <span class="ot">&lt;-</span> Proc_data <span class="sc">%&gt;%</span> </span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">indice_pobreza_rural =</span> <span class="fu">sum</span>(nse, Nivel_educacional,Trabajo_oficio, Sistema_salud, Red_apoyo))</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Proc_data<span class="sc">$</span>indice_pobreza_rural)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
    7.00   10.00   11.00   10.87   12.00   18.00 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Proc_data, <span class="fu">aes</span>(<span class="at">x =</span> indice_pobreza_rural)) <span class="sc">+</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.6</span>, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"yellow"</span>) <span class="sc">+</span>  </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Indices de pobreza multidimensional Rural en la 8va región"</span>) <span class="sc">+</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Frecuencia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Proc_data, <span class="fu">aes</span>(<span class="at">x =</span> indice_pobreza_rural)) <span class="sc">+</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.6</span>, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"yellow"</span>) <span class="sc">+</span>  </span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Indices de pobreza multidimensional Rural en la 8va región"</span>) <span class="sc">+</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Frecuencia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">

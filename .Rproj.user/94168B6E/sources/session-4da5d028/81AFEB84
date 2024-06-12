@@ -3,7 +3,7 @@
     "path": "D:/UNIVERSIDARKSSS/SEXTO AÑO/PROF.R/Trabajo-4/Pobreza_rural_4.qmd",
     "project_path": "Pobreza_rural_4.qmd",
     "type": "quarto_markdown",
-    "hash": "2976494476",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1717731473235.0,
@@ -17,16 +17,16 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "cursorPosition": "135,0",
-        "scrollLine": "23",
-        "rmdVisualModeLocation": "8761:0"
+        "cursorPosition": "159,0",
+        "scrollLine": "0",
+        "rmdVisualModeLocation": "11617:8582.400390625"
     },
     "folds": "",
-    "lastKnownWriteTime": 1718165120,
+    "lastKnownWriteTime": 1718209656,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1718165120115,
+    "last_content_update": 1718209656394,
     "read_only": false,
     "read_only_alternatives": []
 }

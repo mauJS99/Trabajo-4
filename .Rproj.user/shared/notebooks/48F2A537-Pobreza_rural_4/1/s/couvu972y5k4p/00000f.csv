@@ -1,0 +1,15 @@
+"0","#3.1 Gráficos:"
+"0","frq(Proc_data$nse)"
+"1","[31mx[39m[34m <categorical>[39m 
+[34m# total N=1419 valid N=1419 mean=1.22 sd=0.41[39m
+
+Value     |    N | Raw % | Valid % | Cum. %
+-------------------------------------------
+NSE Bajo  | 1113 | 78.44 |   78.44 |  78.44
+NSE Medio |  306 | 21.56 |   21.56 | 100.00
+NSE Alto  |    0 |  0.00 |    0.00 | 100.00
+<NA>      |    0 |  0.00 |    <NA> |   <NA>
+"
+"0","ggplot(Proc_data, aes(x=nse)) +"
+"0","  geom_bar(fill= ""coral"") +"
+"0","  labs (title= ""Nivel Socioeconómico"")"

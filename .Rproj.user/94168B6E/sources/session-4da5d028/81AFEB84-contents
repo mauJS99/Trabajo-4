@@ -27,7 +27,7 @@ Con lo anterior, llevaremos un análisis en base a los resultados obtenidos por 
 
 ### Trabajo en R: Ajustes iniciales, carga de paquetes y base de datos:
 
-1419
+Cabe mencionar, que para efectos de este trabajo, y por motivos de optimización del documento, trabajaremos con una base de datos ya trabajada (Proc_data), la cual proviene de una serie de filtros, recodificaciones y tratamiento de casos perdidos aplicados a la base de datos de la encuensta CASEN2022. Dejando así un total de 1419 observaciones y 10 variables a trabajar.
 
 ```{r}
 #Ajustes iniciales: 
@@ -44,7 +44,11 @@ pacman::p_load(haven,
                sjPlot, #Tablas y gráficos
                corrplot, # Correlaciones
                sessioninfo, # Información de la sesión de trabajo
-               ggplot2) # Para la mayoría de los gráficos
+               ggplot2,  # Para la mayoría de los gráficos
+               mice,   #Para imputar NA's
+               fastDummies, 
+               ggeffects,
+               texreg)
 
 # 1.Base de datos:
 load(file = "Input/Proc_data.RData")
@@ -69,6 +73,11 @@ En cuanto al trabajo u ocupación predominante, podemos observar que corresponde
 
 ```{r}
 #3.1 Gráficos:
+frq(Proc_data$nse)
+ggplot(Proc_data, aes(x=nse)) +
+  geom_bar(fill= "coral") +
+  labs (title= "Nivel Socioeconómico")
+
 frq(Proc_data$Nivel_educacional)
 ggplot(Proc_data, aes(x = Nivel_educacional)) +
   geom_bar(fill = "coral") + 
@@ -85,13 +94,17 @@ ggplot(Proc_data, aes(x = Sistema_salud)) +
   labs (title = "Sistema previsional de Salud que predomina")
 ```
 
-Podemos observar en el gráfico correspondiente al nivel educacional, que el nivel educativo que predomina en las personas que viven en áreas rurales de la 8va región corresponde a las categorías de Educación Básica y Educación Media.
+En cuanto al primer gráfico correspondiente al Nivel socioeconómico, podemos observar en primer lugar que no se observa el Nivel Socioeconómico alto, lo cual nos indica que en las áreas rurales de la región del Bíobio no se perciben personas pertenecientes a un nivel socioeconómico alto. A lo anterior, podemos observar que el NSE que predomina en estas áreas de la región, corresponde a un Nivel Socioeconómico bajo.
+
+Además, podemos observar en el gráfico correspondiente al nivel educacional, que el nivel educativo que predomina en las personas que viven en áreas rurales de la 8va región corresponde a las categorías de Educación Básica y Educación Media completa.
 
 Además, si observamos el gráfico correspondiente al tipo de vivienda, podemos observar que el tipo de vivienda que predomina en las áreas rurales de la 8va región corresponden a la primera categoría, la cual corresponde al tipo de vivienda de "casas aisladas (no pareadas)" siendo esta el 98,3% de la muestra.
 
 A lo anterior podemos agregar que el sistema previsional de salud que predomina en las áreas rurales de la región corresponde a una afiliación al sistema público FONASA, con un 92,8% de la muestra.
 
-### Correlación:
+### Correlación: 
+
+En este punto, nos interesa ver como se interrelacionan las variables. Para esto, procedemos a generar una nueva base (Proc_data_cor), a modo de no intervenir la base de datos original, y así tener un análisis mas prolijo para el trabajo.
 
 ```{r}
 #4.Correlación:
@@ -140,7 +153,9 @@ psych::alpha(dplyr::select(Proc_data_cor, nse,Nivel_educacional, Trabajo_oficio,
 
 Podemos observar que el Alpa de Cronbach aumenta a 0,45, lo que nos indica que al eliminar las variables mencionadas anteriormente, la consistencia interna de nuestro grupo de variables, aumenta y por ende mejora.
 
-### Creamos un índice para medir la pobreza multidimensional en las áreas rurales de la 8va región
+### Creamos un índice para medir la pobreza multidimensional en las áreas rurales de la 8va región:
+
+El índice de pobreza multidimensional es agregado a la base de datos original, pues este nos servirá para un análisis mas en profundización mas adelante.
 
 ```{r}
 ## Construcción de índice:

@@ -1,16 +1,17 @@
-"0","#3.1 Gráficos:"
-"0","frq(Proc_data$Nivel_educacional)"
-"1","[31mx[39m[34m <numeric>[39m 
-[34m# total N=1419 valid N=1419 mean=2.83 sd=0.74[39m
+"0",""
+"0","frq(Proc_data$Sistema_salud)"
+"1","[31mx[39m[34m <categorical>[39m 
+[34m# total N=1419 valid N=1419 mean=2.10 sd=0.43[39m
 
-Value |   N | Raw % | Valid % | Cum. %
---------------------------------------
-    1 |  15 |  1.06 |    1.06 |   1.06
-    2 | 488 | 34.39 |   34.39 |  35.45
-    3 | 639 | 45.03 |   45.03 |  80.48
-    4 | 277 | 19.52 |   19.52 | 100.00
- <NA> |   0 |  0.00 |    <NA> |   <NA>
+Value        |    N | Raw % | Valid % | Cum. %
+----------------------------------------------
+Otro sistema |    1 |  0.07 |    0.07 |   0.07
+FONASA       | 1330 | 93.73 |   93.73 |  93.80
+Isapre       |   49 |  3.45 |    3.45 |  97.25
+FF.AA.       |   24 |  1.69 |    1.69 |  98.94
+Particular   |   15 |  1.06 |    1.06 | 100.00
+<NA>         |    0 |  0.00 |    <NA> |   <NA>
 "
-"0","ggplot(Proc_data, aes(x = Nivel_educacional)) +"
+"0","ggplot(Proc_data, aes(x = Sistema_salud)) +"
 "0","  geom_bar(fill = ""coral"") + "
-"0","  labs (title = ""Nivel educativo en áreas rurales de la 8va región"")"
+"0","  labs (title = ""Sistema previsional de Salud que predomina"")"
