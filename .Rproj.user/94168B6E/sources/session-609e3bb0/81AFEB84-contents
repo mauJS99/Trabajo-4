@@ -161,7 +161,6 @@ ggplot(Proc_data, aes(x = indice_pobreza_rural)) +
 
 ```
 
-Podemos observar que el índice de pobreza multidimensional rural en la 8va Región varía desde 7 hasta 18 puntuaciones, teniendo un valor promedio de 10.87 puntos y una mediana de 11, lo cual nos indica que la distribución de los datos no se encuentra ligeramente sesgada hacia los valores inferiores.
+Podemos observar que el índice de pobreza multidimensional rural en la 8va Región varía desde 7 hasta 18puntuaciones, teniendo un valor promedio de 1.,87 puntos y una mediana de 11, lo cual nos indica que la distribución de los datos no se encuentra ligeramente sesgada hacia los valores inferiores.
 
 La información proporcionada por este índice nos ayuda a comprender de manera simplificada la distribución y tendencia del índice de pobreza multidimensional en la zona rural de la 8va Región, si bien el índice presenta una distribución simétrica, se logra observar un liger sesgo a valores más bajos.
-
