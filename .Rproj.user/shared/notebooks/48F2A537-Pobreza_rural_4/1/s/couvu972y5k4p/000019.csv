@@ -1,0 +1,17 @@
+"0",""
+"0","frq(Proc_data$Sistema_salud)"
+"1","[31mx[39m[34m <numeric>[39m 
+[34m# total N=1419 valid N=1419 mean=2.10 sd=0.43[39m
+
+Value |    N | Raw % | Valid % | Cum. %
+---------------------------------------
+    1 |    1 |  0.07 |    0.07 |   0.07
+    2 | 1330 | 93.73 |   93.73 |  93.80
+    3 |   49 |  3.45 |    3.45 |  97.25
+    4 |   24 |  1.69 |    1.69 |  98.94
+    5 |   15 |  1.06 |    1.06 | 100.00
+ <NA> |    0 |  0.00 |    <NA> |   <NA>
+"
+"0","ggplot(Proc_data, aes(x = Sistema_salud)) +"
+"0","  geom_bar(fill = ""coral"") + "
+"0","  labs (title = ""Sistema previsional de Salud que predomina"")"

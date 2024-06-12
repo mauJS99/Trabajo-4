@@ -1,0 +1,50 @@
+## Procesamiento de datos ##
+##    José Norambuena     ##
+##      Práctico 4        ##
+############################
+
+#### 1. Instalación de paquetes ####
+install.packages("pacman")
+
+# 1.1. Cargar paquetes
+pacman::p_load(sjlabelled, dplyr, stargazer, sjmisc, summarytools, kableExtra, sjPlot, corrplot, sessioninfo, ggplot2, fastDummies, ggeffects)
+
+# 1.2 Pasos previos 
+rm(list=ls())       # borrar todos los objetos en el espacio de trabajo
+options(scipen=999) # valores sin notación científica
+
+#### 2. Cargar base de datos ####
+load(url("https://github.com/Joshezinho/Trabajos/raw/main/input/elsoc.rdata")) #Cargar base de datos
+
+#### 3. Recodificar variables para la regresión ####
+## 3.1 Sexo
+elsoc <- elsoc %>% 
+  mutate(sexo = case_when(sexo == "Hombre"  ~ 1,
+                          sexo == "Mujer" ~ 0))
+
+## 3.2 Apoyo al movimiento estudiantil
+elsoc$apoyo <- (elsoc$comp+elsoc$ident+elsoc$esperanza+elsoc$cambio_social+elsoc$valores)
+summary(elsoc$apoyo)
+
+#### 4. Seleccionar sólo variables a emplear
+elsoc <- select(elsoc, edad, sexo, educ, apoyo)
+
+#### 5. Regresión ####
+fit01<- lm(apoyo~sexo,data=elsoc)
+fit02<- lm(apoyo~sexo+edad,data=elsoc)
+fit03<- lm(apoyo~sexo+edad+educ,data=elsoc)
+
+labs01 <- c("Intercepto","Sexo (mujer)","Edad", "Educación Básica", "Educación Media", "Educación Superior")
+
+#screenreg para que se vea en R
+screenreg(list(fit01,fit02,fit03),custom.coef.names = labs01)
+
+# htmlreg para que se vea en el sitio web
+knitreg(list(fit01,fit02,fit03),
+        custom.model.names = c("Modelo 1","Modelo 2","Modelo 3"),
+        custom.coef.names = c("Intercepto",
+                              "Sexo (mujer)",
+                              "Edad",
+                              "Educación Básica",
+                              "Educación Media",
+                              "Educación Superior"))

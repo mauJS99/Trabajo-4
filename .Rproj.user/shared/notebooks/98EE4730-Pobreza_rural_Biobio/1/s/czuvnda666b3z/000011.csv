@@ -1,0 +1,6 @@
+"0","view(dfSummary(Proc_data, headings=FALSE)) %>%"
+"0","    kable(.,""markdown"")"
+"2","Output file written: C:\Users\Mau\AppData\Local\Temp\RtmpUTT23G\file27c8117462a.html
+"
+"2","Output file written: C:\Users\Mau\AppData\Local\Temp\RtmpUTT23G\file27c81ce11dfb.html
+"

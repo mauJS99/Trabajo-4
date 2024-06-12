@@ -1,0 +1,16 @@
+"0","#3.1 Gráficos:"
+"0","frq(Proc_data$Nivel_educacional)"
+"1","[31mx[39m[34m <numeric>[39m 
+[34m# total N=1419 valid N=1419 mean=2.83 sd=0.74[39m
+
+Value |   N | Raw % | Valid % | Cum. %
+--------------------------------------
+    1 |  15 |  1.06 |    1.06 |   1.06
+    2 | 488 | 34.39 |   34.39 |  35.45
+    3 | 639 | 45.03 |   45.03 |  80.48
+    4 | 277 | 19.52 |   19.52 | 100.00
+ <NA> |   0 |  0.00 |    <NA> |   <NA>
+"
+"0","ggplot(Proc_data, aes(x = Nivel_educacional)) +"
+"0","  geom_bar(fill = ""coral"") + "
+"0","  labs (title = ""Nivel educativo en áreas rurales de la 8va región"")"

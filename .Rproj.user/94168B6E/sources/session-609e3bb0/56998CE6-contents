@@ -1,0 +1,26 @@
+---
+title: "Presentación_Quarto"
+author: "Mauricio Jara"
+format: revealjs
+editor: visual
+---
+
+# LOS GATOS SEPARAN LAS LÁMINAS, UN GATO SON TÍTULOS AL MEDIO.
+
+
+
+## DOS GATOS SON TÍTULOS MAS PEQUEÑOS EN LA PARTE SUPERIOR DERECHA.
+
+
+
+:::: {.columns}
+
+::: {.column width="40%"}
+Columna izquierda
+:::
+
+::: {.column width="60%"}
+Columna derecha
+:::
+
+::::
