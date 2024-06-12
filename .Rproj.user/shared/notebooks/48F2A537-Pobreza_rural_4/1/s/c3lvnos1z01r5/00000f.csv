@@ -1,0 +1,19 @@
+"0","psych::alpha(dplyr::select(Proc_data_cor, nse,Nivel_educacional, Trabajo_oficio, Sistema_salud),check.keys = TRUE)"
+"2","Warning in psych::alpha(dplyr::select(Proc_data_cor, nse, Nivel_educacional,  :"
+"2","
+ "
+"2"," Some items were negatively correlated with total scale and were automatically reversed.
+ This is indicated by a negative sign for the variable name.
+"
+"1","
+Reliability analysis "
+"1"," "
+"1"," 
+"
+"1","Call: "
+"1","psych::alpha(x = dplyr::select(Proc_data_cor, nse, Nivel_educacional, 
+"
+"1","    Trabajo_oficio, Sistema_salud), check.keys = TRUE)
+"
+"1","
+ "

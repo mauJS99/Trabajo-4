@@ -1,0 +1,19 @@
+"0","#5.Confiabilidad del conjunto:"
+"0","## Alpha de Cronbach:"
+"0","psych::alpha(Proc_data_cor, check.keys = TRUE)"
+"2","Warning in psych::alpha(Proc_data_cor, check.keys = TRUE) :"
+"2","
+ "
+"2"," Some items were negatively correlated with total scale and were automatically reversed.
+ This is indicated by a negative sign for the variable name.
+"
+"1","
+Reliability analysis "
+"1"," "
+"1"," 
+"
+"1","Call: "
+"1","psych::alpha(x = Proc_data_cor, check.keys = TRUE)
+"
+"1","
+ "

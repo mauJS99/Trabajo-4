@@ -94,7 +94,7 @@ ggplot(Proc_data, aes(x = Sistema_salud)) +
   labs (title = "Sistema previsional de Salud que predomina")
 ```
 
-En cuanto al primer gráfico correspondiente al Nivel socioeconómico, podemos observar en primer lugar que no se observa el Nivel Socioeconómico alto, lo cual nos indica que en las áreas rurales de la región del Bíobio no se perciben personas pertenecientes a un nivel socioeconómico alto. A lo anterior, podemos observar que el NSE que predomina en estas áreas de la región, corresponde a un Nivel Socioeconómico bajo.
+En cuanto al primer gráfico correspondiente al Nivel socioeconómico, podemos observar en primer lugar que no se observa el Nivel Socioeconómico alto, lo cual nos indica que en las áreas rurales de la región del Biobío no se perciben personas pertenecientes a un nivel socioeconómico alto. A lo anterior, podemos observar que el NSE que predomina en estas áreas de la región, corresponde a un Nivel Socioeconómico bajo.
 
 Además, podemos observar en el gráfico correspondiente al nivel educacional, que el nivel educativo que predomina en las personas que viven en áreas rurales de la 8va región corresponde a las categorías de Educación Básica y Educación Media completa.
 
@@ -153,7 +153,7 @@ psych::alpha(dplyr::select(Proc_data_cor, nse,Nivel_educacional, Trabajo_oficio,
 
 Podemos observar que el Alpa de Cronbach aumenta a 0,45, lo que nos indica que al eliminar las variables mencionadas anteriormente, la consistencia interna de nuestro grupo de variables, aumenta y por ende mejora.
 
-### Creamos un índice para medir la pobreza multidimensional en las áreas rurales de la 8va región:
+### Creamos un índice para medir la pobreza multidimensional en las áreas rurales de la 8va región (IPM):
 
 El índice de pobreza multidimensional es agregado a la base de datos original, pues este nos servirá para un análisis mas en profundización mas adelante.
 
@@ -179,3 +179,60 @@ ggplot(Proc_data, aes(x = indice_pobreza_rural)) +
 Podemos observar que el índice de pobreza multidimensional rural en la 8va Región varía desde 7 hasta 18 puntuaciones, teniendo un valor promedio de 1.,87 puntos y una mediana de 11, lo cual nos indica que la distribución de los datos no se encuentra ligeramente sesgada hacia los valores inferiores.
 
 La información proporcionada por este índice nos ayuda a comprender de manera simplificada la distribución y tendencia del índice de pobreza multidimensional en la zona rural de la 8va Región, si bien el índice presenta una distribución simétrica, se logra observar un liger sesgo a valores más bajos.
+
+### Regresión Lineal:
+
+Para profundizar en el análisis de la pobreza multidimensional en áreas rurales de la 8va región, y a su vez para ver como se comporta este IPM en presencia del Sexo, la edad, y el tipo de vivienda, es que aplicaremos un análisis de regresión lineal.
+
+Esto nos permite ver como se comporta el índice de Pobreza multidimensional en hombres y mujeres de las zonas ya mencionadas, junto a ver como aumenta o disminuye el IPM según la edad. Además decidimos agregar el tipo de vivienda para ver como se comporta el IPM, ya que considerando la zona geográfica, consideramos que el tipo de vivienda incide objetivamente en como se observa y se evidencia la pobreza en distintos hogares de las zonas rurales.
+
+```{r}
+#Regresión lineal:
+#Pasos previos:
+
+Proc_data <- Proc_data %>%
+  mutate(sexo = case_when(sexo == 1 ~ 1, #Para Hombres
+                          sexo == 2 ~ 0)) #Para Mujeres
+#Modelos:
+fit01 <- lm(indice_pobreza_rural ~ sexo, data = Proc_data)
+fit02 <- lm(indice_pobreza_rural ~ sexo + edad, data = Proc_data)
+fit03 <- lm(indice_pobreza_rural ~ sexo + edad + Tipo_vivienda, data = Proc_data)
+
+labs01 <- c("Intercepto","Sexo (mujer)","Edad", "Tipo de vivienda")
+
+screenreg(list(fit01,fit02,fit03),custom.coef.names = labs01)
+
+# htmlreg para que se vea en el sitio web
+knitreg(list(fit01,fit02,fit03),
+        custom.model.names = c("Modelo 1","Modelo 2","Modelo 3"),
+        custom.coef.names = c("Intercepto",
+                              "Sexo (mujer)",
+                              "Edad",
+                              "Tipo de vivienda"))
+
+```
+
+Gracias al análisis de regresión lineal, y a los tres modelos que hemos generado, podemos observar que el IPM en zonas rurales de la 8va región se encuentra en el intercepto con 10.99 puntutaciones. \
+En cuanto al sexo, podemos observar que los hombres en referencia a las mujeres tienen un índice de pobreza mayor, lo que nos sugiere que las mujeres tengan un IPM rural menor. Si bien no es significativo, nos da una idea del comportamiento del IPM.
+
+En cuanto a la edad, podemos observar que es el único predictor que posee una significancia estadística en cuanto al índice de pobreza multidimensional rural en la 8va región. Pues el incremento en años se asocia a una reducción del índice de pobreza. Esto se puede asociar al estilo de vida rural de la región y los grupos etáreas predominantes de estas zonas.
+
+En cuanto al tipo de vivienda, podemos observar que la información no es clara, por lo que el observar y evidenciar el IPM a través del tipo de vivienda no nos proporciona información clara sobre índice.
+
+## Conclusiones:
+
+Con este estudio podemos evidenciar la persistencia de la pobreza, en donde el IPM es más agudo en las zonas rurales de la región del Biobío. Se puede agregar que la suma de las carencias o precariedades en la educación, en la salud y en las condicones generales de vida, revelan una situación de pobreza persistente.
+
+A lo anteior, es posible enfatizar en la importancia de la educación, pues como se evidencia en los resultados de este trabajo, la relación negativa entre el nivel educativo y ciertos tipos de trabajos u oficios, sugiere que el mejorar el acceso a una buena educación, puede posibilitar condiciones laborales menos precarias.
+
+Si bien, mencionamos que en cuanto al género no hay significancia estadística, si podemos mencionar que en cuanto a las políticas públicas que buscan mejorar las condiciones de pobreza, estas aún poseen falencias en temáticas de género, pues la tendencia de un IPM mejor en mujeres lo evidencia.
+
+En cuanto a la edad, podemos ver que es el factor más significativo a la hora de analizar el IPM en zonas rurales de la región, pues evidencia que adultos mayores en estas zonas presenten mayores carencias multidimensioanles, lo cual se deve a su estabilidad laboral y su experiencia de vida en estas zonas.
+
+Teniendo en claro la información obtenido tras este estudio, es que surgen diversas recomendaciones o posibles mejoras para las personas de estas zonas:
+
+En primer lugar es evidente que al implementar politicas educativas que tengan mejor alcance en zonas rurales, estas puedan fortalecer el nivel educativo y así reducir la brechas de desigualdad.
+
+Además un desarrollo de programas focalizados a la población adulta mayor en las zonas rurales, puede disminuir la brecha de desigualdad en los grupos etáreos de mayor edad.
+
+Con este estudio queda en claro que la realidad de la pobreza en las zonas rurales en Chile, especificamente en la 8va Región, se encuentra más aguda que en las zonas urbanas de la misma región. Este estudio proporciona un pequeño grano de arena a la base sólida que se requiere para comprender la pobreza multidimensional en estas áreas del País, enfatizando en la importancia de generar políticas públicas de carácter integrale (considerando la multidimensionalidad de salud, trabajo, redes sociales, etc), y al mismo tiempo focalizadas a ciertos grupos (como el caso de los adultos mayores).

@@ -213,8 +213,7 @@ ggplot(Proc_data, aes(x = indice_pobreza_rural)) +
 Proc_data <- Proc_data %>%
   mutate(sexo = case_when(sexo == 1 ~ 1, #Para Hombres
                           sexo == 2 ~ 0)) #Para Mujeres
-
-# 6.2 El indice de pobreza rural lo creamos anteriormente
+#Modelos:
 fit01 <- lm(indice_pobreza_rural ~ sexo, data = Proc_data)
 fit02 <- lm(indice_pobreza_rural ~ sexo + edad, data = Proc_data)
 fit03 <- lm(indice_pobreza_rural ~ sexo + edad + Tipo_vivienda, data = Proc_data)
@@ -231,3 +230,25 @@ knitreg(list(fit01,fit02,fit03),
                               "Sexo (mujer)",
                               "Edad",
                               "Tipo de vivienda"))
+
+###################################XD
+
+# Función auxiliar para obtener coeficientes adecuados
+get_coef_names <- function(fit, labels) {
+  coef_names <- names(coef(fit))
+  return(labels[1:length(coef_names)])
+}
+
+# Aplicar esta función a cada modelo
+custom_labels <- lapply(list(fit01, fit02, fit03, fit04), get_coef_names, labels = labs01[[4]])
+
+# Mostrar los modelos en la pantalla con screenreg
+screenreg(list(fit01, fit02, fit03, fit04), 
+          custom.model.names = c("Modelo 1", "Modelo 2", "Modelo 3", "Modelo 4"),
+          custom.coef.names = custom_labels)
+
+# htmlreg para que se vea en el sitio web
+knitreg(list(fit01, fit02, fit03, fit04),
+        custom.model.names = c("Modelo 1", "Modelo 2", "Modelo 3", "Modelo 4"),
+        custom.coef.names = custom_labels)
+
