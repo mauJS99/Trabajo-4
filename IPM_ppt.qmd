@@ -1,0 +1,225 @@
+---
+title: "Análisis de pobreza en los sectores rurales de Chile: estudio local de la región del Biobío."
+author: "Mauricio Jara S"
+format: 
+  revealjs:
+    slidenumber: true
+editor: visual
+title-slide-attributes:
+    data-background-image: Output/Pob_1.jpg # Agregar una imagen al comienzo de la presentación
+    data-background-size: contain
+    data-background-opacity: "0.4" # Qué tan difuminada se ve la imagen (0.1 es lo menor)
+bibliography: TrabajoR_Pobreza_Rural_Biobio.bib
+link-citations: true
+---
+
+# Antecedentes:
+
+## Pobreza rural en Chile:
+
+Según un análisis comparativo de las carencias y brechas en los hogares rurales de Chile, se plantea que, a nivel general, las carencias se encuentran mas acentuadas en las zonas rurales y que estas se agudizan al utilizar indicadores multidimensionales para su medición. [@rodriguez-garcesReconfiguracionMapaPobreza2018]
+
+## IPM en Chile:
+
+La pobreza en Chile ha sido un fenómeno que ha acompañado al desarrollo del país constantemente y la medición de esta se ha realizado de manera más formal y sistemática a partir de la aplicación de la Encuesta de Caracterización Socioeconómica Nacional (CASEN), la cual ha implementado la medición de la pobreza multidimensional a partir del año 2013 [@herreraPobrezaMultidimensionalChile], con el fin de aportar a una comprensión más amplia y detallada de las condiciones de vida de la población.
+
+# Objetivos:
+
+Analizar el comportamiento de la pobreza multidimensional en las zonas rurales de la región del Biobío. Considerando que la Encuesta CASEN 2022 revela el menor nivel de pobreza en el país en muchos años. En suma la región se mantiene dentro de las menos pobres, por lo que nos interesamos en ver el comportamiento de la pobreza multidimensional especificamente las áreas ya mencionadas.
+
+# Variables y datos:
+
+## Variables:
+::: columns
+::: {.column width="50%"}
+::: {.incremental}
+
+- Edad
+- Sexo
+- NSE → Nivel Socioeconómico
+- Región (8va región)
+- Área (rural)
+- Nivel educacional
+- Trabajo u oficio
+:::
+:::
+
+::: {.column width="50%"}
+::: {.incremental}
+- Sistema de afiliaicón de Salud
+- Red de apoyo
+- Tipo de vivienda
+:::
+:::
+:::
+
+## Descriptivos: Obtenidos de la CASEN 2022
+
+::: columns
+::: {.column width="50%"}
+![](Output/Descriptivos1.png)
+:::
+
+::: {.column width="50%"}
+![](Output/Descriptivos2.png)
+:::
+:::
+
+## Gráfico Nivel Socio económico en las zonas rurales de la región:
+
+::: columns
+::: {.column width="60%"}
+
+Podemos observar que no se aprecia un Nivel Socioeconómico alto, lo cual indica que en las áreas rurales de la región no se perciben personas pertenecientes a un nivel socioeconómico alto. Podemos agregar que el NSE que predomina en estas áreas de la región, corresponde a un Nivel Socioeconómico bajo.
+
+:::
+
+::: {.column width="40%"}
+
+![](Output/graf_nse.png)
+
+:::
+:::
+
+## Gráfico Nivel educacional en las zonas rurales de la región:
+
+::: columns
+::: {.column width="50%"}
+
+Podemos observar en el gráfico correspondiente al nivel educacional, que el nivel educativo que predomina en las personas que viven en áreas rurales de la 8va región corresponde a las categorías de Educación Básica y Educación Media completa.
+
+:::
+
+::: {.column width="50%"}
+
+![](Output/graf_educ.png)
+:::
+:::
+
+## Grafico Sistema de afiliación de Salud en las zonas rurales de la región:
+
+::: columns
+::: {.column width="50%"}
+
+podemos agregar que el sistema previsional de salud que predomina en las áreas rurales de la región corresponde a una afiliación al sistema público FONASA, con un 92,8% de la muestra.
+
+:::
+
+::: {.column width="50%"}
+
+![](Output/graf_Salud.png)
+:::
+:::
+
+# Análisis e interacción entre variables:
+
+## Correlación:
+::: columns
+::: {.column width="60%"}
+::: {.incremental}
+- Podemos observar que las relaciones mas significativas se encuentran asociadas a la relacion negativa entre el nivel educacional y el tipo de trabajo u oficio (-0476) → A mayor nivel educacional, menor es la probabilidad de dedicarse a ciertos trabajos.
+
+:::
+:::
+::: {.column width="40%"}
+![](Output/Tab_Cor2.png)
+:::
+:::
+
+## Correlación:
+::: columns
+::: {.column width="60%"}
+::: {.incremental}
+
+- En estas zonas de la región, es lebemente probable que una persona tenga un mejor sistema de salud si su educación mejora.
+
+:::
+:::
+::: {.column width="40%"}
+![](Output/Tab_Cor2.png)
+:::
+:::
+
+## Correlación:
+::: columns
+::: {.column width="60%"}
+::: {.incremental}
+
+- Nos indica que en estas zonas es ligeramente probable que una persona dependa de Redes de apoyo si su NSE es más alto
+:::
+:::
+::: {.column width="40%"}
+![](Output/Tab_Cor2.png)
+:::
+:::
+
+## Creación de IPM: 
+:::columns
+::: {.column width="60%"}
+- Creamos un índice para medir la pobreza multidimensional en las áreas rurales de la 8va región.
+:::
+::: {.column width="40%"}
+![](Output/graf_IPC.png)
+:::
+:::
+
+## Creación de IPM: 
+:::columns
+::: {.column width="60%"}
+- La información nos ayuda a comprender de manera simplificada la distribución y tendencia del índice de pobreza multidimensional en la zona, si bien se presenta una distribución simétrica, se logra observar un ligero sesgo a valores más bajos.
+:::
+::: {.column width="40%"}
+![](Output/graf_IPC.png)
+:::
+:::
+
+## Regresión linal:
+:::columns
+::: {.column width="60%"}
+- Para profundizar en el análisis de la pobreza multidimensional en áreas rurales de la 8va región, y a su vez para ver como se comporta este IPM en presencia del Sexo, la edad, y el tipo de vivienda, es que aplicaremos un análisis de regresión lineal.
+:::
+::: {.column width="40%"}
+![](Output/Modelos.png)
+:::
+:::
+
+## Regresión linal:
+:::columns
+::: {.column width="60%"}
+- Podemos observar que el IPM en zonas rurales de la 8va región se encuentra en el intercepto con 10.99 puntutaciones.
+:::
+::: {.column width="40%"}
+![](Output/Modelos.png)
+:::
+:::
+
+## Regresión linal:
+:::columns
+::: {.column width="60%"}
+- En cuanto a la edad, podemos observar que es el único predictor que posee una significancia estadística en cuanto al índice de pobreza multidimensional rural en la 8va región. Pues el incremento en años se asocia a una reducción del índice de pobreza. Esto se puede asociar al estilo de vida rural de la región y los grupos etáreos predominantes de estas zonas.
+:::
+::: {.column width="40%"}
+![](Output/Modelos.png)
+:::
+:::
+
+# Conclusiones:
+## Conclusiones:
+::: {.incremental}
+- Se puede evidenciar que la suma de las carencias o precariedades en la educación, en la salud y en las condicones generales de vida, revelan una situación de pobreza persistente.
+- Importancia de la educación, pues la relación negativa entre el nivel educativo y ciertos tipos de trabajos u oficios, sugiere que el mejorar el acceso a una buena educación, puede posibilitar condiciones laborales menos precarias.
+:::
+
+## Conclusiones:
+::: {.incremental}
+- En cuanto a las políticas públicas que buscan mejorar las condiciones de pobreza, estas aún poseen falencias en temáticas de género, pues la tendencia de un IPM mejor en mujeres lo evidencia.
+- En cuanto a la edad, evidencia que adultos mayores en estas zonas presenten mayores carencias multidimensioanles, lo cual se debe a su estabilidad laboral y su experiencia de vida en estas zonas.
+
+:::
+
+## Muchas gracias!
+![](Output/Monki.png)
+
+
+
+## Bibliografía:
